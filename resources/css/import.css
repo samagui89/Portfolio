@@ -23,9 +23,11 @@ a { color: #000; text-decoration: none; }
 
 @font-face { font-family: 'Noto'; font-weight: 200; src: url("../fonts/NotoSansKR-Light.otf") format("opentype"), url("../fonts/NotoSansKR-Light.otf") format("opentype"), url("../fonts/NotoSansKR-Light.otf") format("opentype"); }
 
-#header { position: fixed; top: 0; left: 0; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; width: 100%; padding: 40px 50px; z-index: 10; -webkit-transition: all 0.2s; transition: all 0.2s; }
+#header { position: relative; top: 0; left: 0; width: 100%; height: 0; z-index: 10; }
 
-#header h1 { font-size: 20px; font-weight: 600; }
+#header h1 { position: absolute; top: 40px; left: 50px; font-size: 20px; font-weight: 600; }
+
+#header nav { position: absolute; top: 40px; right: 50px; }
 
 #header nav a { display: inline-block; padding: 0 20px; font-size: 18px; }
 
@@ -45,9 +47,15 @@ a { color: #000; text-decoration: none; }
 
 .content .sec01 .visual_wrap .visual02 { background-color: #ffbbbb; }
 
-.content .sec02 { height: 100vh; background-color: #666; }
+.content .sec01 .visual_wrap .cursor_box { position: absolute; top: 0; left: 0; overflow: hidden; width: 1px; height: 1px; }
 
-.content .animate_wrap { position: fixed; top: 50%; left: 50%; width: 400px; height: 400px; -webkit-transform: translate(-50%, -50%) rotate(0deg); transform: translate(-50%, -50%) rotate(0deg); -webkit-transition: -webkit-transform 0.5s; transition: -webkit-transform 0.5s; transition: transform 0.5s; transition: transform 0.5s, -webkit-transform 0.5s; }
+.content .sec01 .visual_wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+.content .sec02 { height: 300vh; background-color: #666; }
+
+.content .sec03 { height: 100vh; background-color: #ddd; }
+
+.content .animate_wrap { position: fixed; top: 50%; left: 50%; width: 400px; height: 400px; -webkit-transform: translate(-50%, -50%) rotate(0deg); transform: translate(-50%, -50%) rotate(0deg); -webkit-transition: -webkit-transform 0.2s; transition: -webkit-transform 0.2s; transition: transform 0.2s; transition: transform 0.2s, -webkit-transform 0.2s; }
 
 .content .animate_wrap .circle_box { font-size: 0; }
 
@@ -69,4 +77,4 @@ a { color: #000; text-decoration: none; }
 
 .content .animate_wrap .circle_box.active .circle04 { border-radius: 0 0 100% 0; background-color: #0d66a5; }
 
-.content .animate_wrap .btn_main_ment { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 100%; line-height: 1.5; text-align: center; color: #333333; font-size: 34px; font-weight: 600; }
+.content .animate_wrap .btn_main_ment { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 100%; line-height: 1.5; text-align: center; color: #333333; font-size: 34px; font-weight: 600; -webkit-transition: -webkit-transform 0.2s; transition: -webkit-transform 0.2s; transition: transform 0.2s; transition: transform 0.2s, -webkit-transform 0.2s; }

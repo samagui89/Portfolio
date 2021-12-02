@@ -17,6 +17,16 @@
             .visual02 {
                 background-color:#ffbbbb;
             }
+            .cursor_box{
+                position:absolute;top:0;left:0;overflow:hidden;width:1px;height:1px;
+            }
+            iframe {
+                position:absolute;
+                top:0;
+                left:0;
+                width:100%;
+                height:100%;
+            }
         }
     }
     .sec02 {
@@ -34,7 +44,7 @@
         width:400px;
         height:400px;
         transform:translate(-50%, -50%) rotate(0deg);
-        transition:transform 0.5s;
+        transition:transform 0.2s;
         .circle_box {
             font-size:0;
             > div {
@@ -90,6 +100,7 @@
             color: $col_33;
             font-size:34px;
             font-weight:600;
+            transition:transform 0.2s;
         }
     }
 }

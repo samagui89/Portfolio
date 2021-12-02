@@ -4,9 +4,11 @@
 
 @font-face { font-family: 'Noto'; font-weight: 200; src: url("../fonts/NotoSansKR-Light.otf") format("opentype"), url("../fonts/NotoSansKR-Light.otf") format("opentype"), url("../fonts/NotoSansKR-Light.otf") format("opentype"); }
 
-#header { position: fixed; top: 0; left: 0; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; width: 100%; padding: 40px 50px; z-index: 10; -webkit-transition: all 0.2s; transition: all 0.2s; }
+#header { position: relative; top: 0; left: 0; width: 100%; height: 0; z-index: 10; }
 
-#header h1 { font-size: 20px; font-weight: 600; }
+#header h1 { position: absolute; top: 40px; left: 50px; font-size: 20px; font-weight: 600; }
+
+#header nav { position: absolute; top: 40px; right: 50px; }
 
 #header nav a { display: inline-block; padding: 0 20px; font-size: 18px; }
 
