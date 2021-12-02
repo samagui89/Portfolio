@@ -47,7 +47,7 @@ a { color: #000; text-decoration: none; }
 
 .content .sec02 { height: 100vh; background-color: #666; }
 
-.content .animate_wrap { position: fixed; top: 50%; left: 50%; width: 400px; height: 400px; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); }
+.content .animate_wrap { position: fixed; top: 50%; left: 50%; width: 400px; height: 400px; -webkit-transform: translate(-50%, -50%) rotate(0deg); transform: translate(-50%, -50%) rotate(0deg); -webkit-transition: -webkit-transform 0.5s; transition: -webkit-transform 0.5s; transition: transform 0.5s; transition: transform 0.5s, -webkit-transform 0.5s; }
 
 .content .animate_wrap .circle_box { font-size: 0; }
 
