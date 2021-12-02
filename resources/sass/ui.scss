@@ -1,0 +1,90 @@
+.content{
+    section {
+        min-height:100vh;
+    }
+    .sec01 {
+        position:relative;
+        // height:100vh;
+        .visual_wrap {
+            display:flex;
+            height:100vh;
+            > div {
+                width:50%;
+            }
+            .visual01 {
+                background-color:#bbb;
+            }
+            .visual02 {
+                background-color:#ffbbbb;
+            }
+        }
+    }
+    .sec02 {
+        height:100vh;
+        background-color:#666;
+    }
+    .animate_wrap {
+        position:fixed;
+        top:50%;
+        left:50%;
+        width:400px;
+        height:400px;
+        transform:translate(-50%, -50%);
+        .circle_box {
+            font-size:0;
+            > div {
+                display:inline-block;
+                width:200px;
+                height:200px;
+                transition: all 0.2s;
+            }
+            .circle01{
+                border-radius:100% 0 0 0;
+                background-color:$col_wh;
+            }
+            .circle02{
+                border-radius:0 100% 0 0;
+                background-color:$col_wh;
+            }
+            .circle03{
+                border-radius:0 0 0 100%;
+                background-color:$col_wh;
+            }
+            .circle04{
+                border-radius:0 0 100% 0;
+                background-color:$col_wh;
+            }
+        }
+        .circle_box.active{
+            .circle01{
+                border-radius:100% 0 0 0;
+                background-color:$col_ht;
+            }
+            .circle02{
+                border-radius:0 100% 0 0;
+                background-color:$col_cs;
+            }
+            .circle03{
+                border-radius:0 0 0 100%;
+                background-color:$col_js;
+            }
+            .circle04{
+                border-radius:0 0 100% 0;
+                background-color:$col_jq;
+            }
+        }
+        .btn_main_ment{
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            border-radius:100%;
+            line-height: 1.5;
+            text-align:center;
+            color: $col_33;
+            font-size:34px;
+            font-weight:600;
+        }
+    }
+}
