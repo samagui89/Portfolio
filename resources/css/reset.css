@@ -14,3 +14,5 @@ blockquote:before, blockquote:after, q:before, q:after { content: ''; content: n
 table { border-collapse: collapse; border-spacing: 0; }
 
 button { margin: 0; padding: 0; border: none; background: transparent; cursor: pointer; }
+
+a { color: #000; text-decoration: none; }

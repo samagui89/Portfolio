@@ -15,6 +15,8 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 button { margin: 0; padding: 0; border: none; background: transparent; cursor: pointer; }
 
+a { color: #000; text-decoration: none; }
+
 @font-face { font-family: 'Noto'; font-weight: 600; src: url("../fonts/NotoSansKR-Bold.otf") format("opentype"), url("../fonts/NotoSansKR-Bold.otf") format("opentype"), url("../fonts/NotoSansKR-Bold.otf") format("opentype"); }
 
 @font-face { font-family: 'Noto'; font-weight: 400; src: url("../fonts/NotoSansKR-Regular.otf") format("opentype"), url("../fonts/NotoSansKR-Regular.otf") format("opentype"), url("../fonts/NotoSansKR-Regular.otf") format("opentype"); }
