@@ -17,7 +17,14 @@ const ui = {
 			$(window).on('scroll', function(){
 				scT = $(this).scrollTop();
 				_this.evtHandler($target, $btn, $cAll, scT, sec2T, sec3T);
-			})
+			});
+
+			$btn.on('mouseenter', function(){
+				$(this).addClass('active');
+			});
+			$btn.on('mouseleave', function(){
+				$(this).removeClass('active');
+			});
 		},
 		evtHandler : function($target, $btn, $cAll, scT, sec2T, sec3T){
 			if( scT <= sec2T ){
@@ -35,11 +42,17 @@ const ui = {
 					harfMat = parseInt(100 - ((harfSec3T - scT) / (harfSec3T - sec2T) * 100)) / 100;
 				if( harfMat <= 1 ){
 					$cAll.css({'font-size':harfMat * 24 + 'px'});
-					$cAll.closest('.circle_box').removeClass('active');
-				} else {
-					console.log(pagMat);
+					if( $cAll.closest('.circle_box').hasClass('active') ){
+						$cAll.closest('.circle_box').removeClass('active');
+					}
+				} else if ( harfMat > 1 && harfMat <= 1.5 ) {
 					$cAll.css({'font-size':'24px'});
 					$cAll.closest('.circle_box').addClass('active');
+					if( $target.hasClass('full') ){
+						$target.removeClass('full');
+					}
+				} else {
+					$target.addClass('full');
 				}
 			} else {
 				$target.css({'transform':'translate(-50%, -50%) rotate(360deg)'})
@@ -48,12 +61,24 @@ const ui = {
 	},
 	mouse : {
 		init : function(){
-			let _this = this
-				$target = $('.visual_bg');
+			let _this = this,
+				$target = $('.visual_bg'),
+				$circle = $('.circle_box div');
 
-			_this.evtHandler($target);
+			_this.visualEvt($target);
+
+			$circle.on('mouseenter', function(){
+				if( $(this).closest('.circle_box.active').length > 0 ){
+					$(this).addClass('pong');
+				}
+			});
+			$circle.on('mouseleave', function(){
+				if( $(this).closest('.circle_box.active').length > 0 ){
+					$(this).removeClass('pong');
+				}
+			});
 		},
-		evtHandler : function($target){
+		visualEvt : function($target){
 			$target.on('mousemove', function(e){
 				let body = $('.visual_bg');
 				let circle = document.createElement('span');
