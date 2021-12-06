@@ -1,8 +1,32 @@
 @charset "UTF-8";
 
+// Font import
+@font-face {
+    font-family:'Noto';
+    font-weight:600;
+    src: url('../fonts/NotoSansKR-Bold.otf') format('opentype'),
+        url('../fonts/NotoSansKR-Bold.otf') format('opentype'),
+        url('../fonts/NotoSansKR-Bold.otf') format('opentype');
+}
+@font-face {
+    font-family:'Noto';
+    font-weight:400;
+    src: url('../fonts/NotoSansKR-Regular.otf') format('opentype'),
+        url('../fonts/NotoSansKR-Regular.otf') format('opentype'),
+        url('../fonts/NotoSansKR-Regular.otf') format('opentype');
+}
+@font-face {
+    font-family:'Noto';
+    font-weight:200;
+    src: url('../fonts/NotoSansKR-Light.otf') format('opentype'),
+        url('../fonts/NotoSansKR-Light.otf') format('opentype'),
+        url('../fonts/NotoSansKR-Light.otf') format('opentype');
+}
+
 $col_wh : #ffffff;
 $col_33 : #333333;
 $col_66 : #666666;
+$col_f1 : #f1f1f1;
 $col_ht : #f26a2d;
 $col_cs : #32aadb;
 $col_js : #f1c023;

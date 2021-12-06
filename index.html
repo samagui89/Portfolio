@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pick Me!</title>
-    <link rel="stylesheet" href="/resources/css/import.css">
-    <script src="/resources/js/jquery-3.6.0.slim.min.js"></script>
-    <script src="/resources/js/ui.js"></script>
+    <script src="/resources/js/include.js"></script>
+    <script>include.comHead();</script>
+    <script>include.comJs();</script>
+    <script>include.comStyle();</script>
 </head>
 <body>
     <header id="header">
@@ -23,16 +20,8 @@
         <div class="content">
             <section class="sec01">
                 <div class="visual_wrap">
-                    <div class="visual01">
-                        <div class="cursor_box">
-                            <iframe src="https://www.youtube.com/embed/W5g9Cfl-MBc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                    <div class="visual02">
-                        <div class="cursor_box">
-                            <iframe src="https://www.youtube.com/embed/W5g9Cfl-MBc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                    </div>
+                    <div class="visual_bg"></div>
+                    <div id="mainVideo"></div>
                 </div>
             </section>
             <section class="sec02">
@@ -43,12 +32,17 @@
             </section>
             <div class="animate_wrap">
                 <div class="circle_box">
-                    <div class="circle01"></div>
-                    <div class="circle02"></div>
-                    <div class="circle03"></div>
-                    <div class="circle04"></div>
+                    <div class="circle01">HTML5</div>
+                    <div class="circle02">CSS3</div>
+                    <div class="circle03">Javascript</div>
+                    <div class="circle04">jQuery</div>
                 </div>
-                <button type="button" class="btn_main_ment">Do hire<br>people who will<br>get things done.</button>
+                <button type="button" class="btn_main_ment">
+                    <span class="txt">Do hire</span>
+                    <span class="txt">people who will</span>
+                    <span class="txt">get things done.</span>
+                    <span class="arrow">click or scroll</span>
+                </button>
             </div>
         </div>
     </div>

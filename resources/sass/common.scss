@@ -1,25 +1,4 @@
-// Font import
-@font-face {
-    font-family:'Noto';
-    font-weight:600;
-    src: url('../fonts/NotoSansKR-Bold.otf') format('opentype'),
-        url('../fonts/NotoSansKR-Bold.otf') format('opentype'),
-        url('../fonts/NotoSansKR-Bold.otf') format('opentype');
-}
-@font-face {
-    font-family:'Noto';
-    font-weight:400;
-    src: url('../fonts/NotoSansKR-Regular.otf') format('opentype'),
-        url('../fonts/NotoSansKR-Regular.otf') format('opentype'),
-        url('../fonts/NotoSansKR-Regular.otf') format('opentype');
-}
-@font-face {
-    font-family:'Noto';
-    font-weight:200;
-    src: url('../fonts/NotoSansKR-Light.otf') format('opentype'),
-        url('../fonts/NotoSansKR-Light.otf') format('opentype'),
-        url('../fonts/NotoSansKR-Light.otf') format('opentype');
-}
+
 
 #header {
     position:relative;
@@ -32,6 +11,7 @@
         position:absolute;
         top:40px;
         left:50px;
+        color:$col_wh;
         font-size:20px;
         font-weight:600;
     }
@@ -42,6 +22,7 @@
         a {
             display:inline-block;
             padding:0 20px;
+            color:$col_wh;
             font-size:18px;
         }
     }
