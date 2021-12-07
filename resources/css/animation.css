@@ -1,3 +1,10 @@
+/* Config */
+/* mixins */
+@-webkit-keyframes animParticle { from { -webkit-transform: translateY(0px); transform: translateY(0px); }
+  to { -webkit-transform: translateY(-2560px); transform: translateY(-2560px); } }
+@keyframes animParticle { from { -webkit-transform: translateY(0px); transform: translateY(0px); }
+  to { -webkit-transform: translateY(-2560px); transform: translateY(-2560px); } }
+
 @-webkit-keyframes blow { 0% { -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);
     opacity: 1;
     -webkit-filter: hue-rotate(0deg);

@@ -32,6 +32,27 @@ $col_cs : #32aadb;
 $col_js : #f1c023;
 $col_jq : #0d66a5;
 
+$col_snow : rgba(255, 255, 255, 0.5);
+$spacing: 2560px;
+$time-1: 60s;
+$time-2: 120s;
+$time-3: 180s;
+$time-4: 200s;
+
+/* mixins */
+@function particles($max) {
+    $val: 0px 0px $col_snow;
+    @for $i from 1 through $max {
+        $val: #{$val}, random($spacing)+px random($spacing)+px $col_wh;
+    }
+    @return $val;
+}
+
+@mixin particles($max) {
+    box-shadow: particles($max);
+    border-radius: 50%;
+}
+
 @import "reset";
 @import "common";
 @import "ui";

@@ -52,6 +52,7 @@ const ui = {
 						$target.removeClass('full');
 					}
 				} else {
+					$cAll.closest('.circle_box').removeClass('active');
 					$target.addClass('full');
 				}
 			} else {
@@ -63,6 +64,7 @@ const ui = {
 		init : function(){
 			let _this = this,
 				$target = $('.visual_bg'),
+				$bgSquare =('.bg_square_box'),
 				$circle = $('.circle_box div');
 
 			_this.visualEvt($target);
@@ -84,6 +86,8 @@ const ui = {
 				let circle = document.createElement('span');
 				let x = e.offsetX;
 				let y = e.offsetY;
+				let pagX = e.pageX;
+				let pagY = e.pageY
 				circle.style.left = x + "px";
 				circle.style.top = y + "px";
 
