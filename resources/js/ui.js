@@ -48,12 +48,12 @@ const ui = {
 				} else if ( harfMat > 1 && harfMat <= 1.5 ) {
 					$cAll.css({'font-size':'24px'});
 					$cAll.closest('.circle_box').addClass('active');
-					if( $target.hasClass('full') ){
-						$target.removeClass('full');
-					}
+					// if( $target.hasClass('full') ){
+					// 	$target.removeClass('full');
+					// }
 				} else {
-					$cAll.closest('.circle_box').removeClass('active');
-					$target.addClass('full');
+					// $cAll.closest('.circle_box').removeClass('active');
+					// $target.addClass('full');
 				}
 			} else {
 				$target.css({'transform':'translate(-50%, -50%) rotate(360deg)'})
@@ -92,8 +92,8 @@ const ui = {
 				circle.style.top = y + "px";
 
 				let size = Math.random() * 100;
-				circle.style.width = 20 + size + "px";
-				circle.style.height = 20 + size + "px";
+				circle.style.width = size + "px";
+				circle.style.height = size + "px";
 
 				body.append(circle);
 				setTimeout(function() {
