@@ -41,7 +41,7 @@ const ui = {
 					rotParese = parseInt((100 - rotMat * 100) * 3.6);
 				$target.css({'transform':'translate(-50%, -50%)'})
 				$btn.css({'transform':'scale('+rotMat.toFixed(1)+') rotate('+ rotParese +'deg)'});
-				$cAll.css({'font-size':'0px'});
+				$cAll.find('span').css({'font-size':'0px'});
 			} else if ( scT <= sec3T ) {
 				/* 원 Animation */
 				$target.css({'transform':'translate(-50%, -50%)'})
@@ -52,7 +52,7 @@ const ui = {
 				if( harfMat <= 1 ){
 					/* 원 Animation */
 					$btn.css({'transform':'scale(0)  rotate(360deg)'});
-					$cAll.css({'font-size':harfMat * 24 + 'px'});
+					$cAll.find('span').css({'font-size':harfMat * 24 + 'px'});
 					if( $cAll.closest('.circle_box').hasClass('active') ){
 						$cAll.closest('.circle_box').removeClass('active');
 					}
