@@ -32,7 +32,7 @@ $col_cs : #32aadb;
 $col_js : #f1c023;
 $col_jq : #0d66a5;
 
-$col_snow : rgba(255, 255, 255, 0.5);
+$col_snow : rgba(200, 200, 200, 0.4);
 $spacing: 2560px;
 $time-1: 60s;
 $time-2: 120s;
@@ -41,9 +41,9 @@ $time-4: 200s;
 
 /* mixins */
 @function particles($max) {
-    $val: 0px 0px $col_snow;
+    $val: 0px 0px $col_wh;
     @for $i from 1 through $max {
-        $val: #{$val}, random($spacing)+px random($spacing)+px $col_wh;
+        $val: #{$val}, random($spacing)+px random($spacing)+px $col_snow;
     }
     @return $val;
 }

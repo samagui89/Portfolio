@@ -9,7 +9,7 @@ svg {
     height:0;
     z-index:10;
     h1 {
-        position:absolute;
+        position:fixed;
         top:40px;
         left:50px;
         a {
@@ -19,12 +19,13 @@ svg {
         }
     }
     nav {
-        position:absolute;
-        top:40px;
-        right:50px;
+        position:fixed;
+        top:50%;
+        right:30px;
+        transform:translateY(-50%);
         a {
-            display:inline-block;
-            padding:0 20px;
+            display:block;
+            padding:20px 0;
             color:$col_wh;
             font-size:1.2em;
         }
