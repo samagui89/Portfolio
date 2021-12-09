@@ -39,7 +39,7 @@
 				}
 			}
 			iframe {
-				position:absolute;
+				position:fixed;
 				top:50%;
 				left:50%;
 				width:150%;
@@ -109,11 +109,21 @@
 					}
 				}
 			}
+			.name {
+				position:absolute;
+				bottom:0;
+				right:0;
+				color:rgba(255, 255, 255, 0.3);
+				font-size:60px;
+				font-weight:600;
+			}
 		}
 	}
 	.sec02 {
+		position:relative;
 		height:300vh;
 		background-color:#000;
+		z-index:1;
 	}
 	.sec03 {
 		height:100vh;
@@ -141,16 +151,22 @@
 				display:inline-block;
 				width:250px;
 				height:250px;
+				padding:0;
 				background-color:transparent;
-				transition: all 0.4s;
+				text-align:center;
+				transition: all 0.5s, background-color 1s;
+				&:before {
+					content:'';
+					opacity:0;
+					transition:opacity 0.5s linear;
+				}
 				span {
-					display:block;
+					display:inline-block;
 					line-height:250px;
-					color:$col_33;
-					text-align:center;
-					font-size:0;
+					color:$col_wh;
+					font-size:24px;
 					font-weight:600;
-					transition:text-shadow 1s, color 1s;
+					transform:scale(0);
 				}
 			}
 			.circle01{
@@ -180,10 +196,11 @@
 					overflow:hidden;
 					width:350px;
 					height:350px;
+					padding:20px;
 					border-radius:100%;
-					line-height:350px;
-					color:#fff;
+					color:$col_wh;
 					cursor:pointer;
+					transition:all 0.5s linear, background-color 1s linear;
 					&:before {
 						content:'';
 						display:block;
@@ -192,37 +209,33 @@
 						left:20px;
 						width:310px;
 						height:310px;
-						border:1px dashed $col_wh;
+						border:2px dashed $col_wh;
 						border-radius:100%;
+						opacity:1;
 						animation: turn 20s linear infinite;
+						transition:opacity 0.5s linear 1s;
 					}
 					&.pong {
 						transform:scale(1.5);
 						animation: pong 0.8s linear;
 					}
 					span {
-						line-height:350px;
-						color:$col_66;
-						font-size:1.2em;
-						text-shadow:
-							-1em -1em 0em rgba(255, 255, 255, 0.25),
-							-2em -2em 0em rgba(255, 255, 255, 0.25),
-							-3em -3em 0em rgba(255, 255, 255, 0.25),
-							-4em -4em 0em rgba(255, 255, 255, 0.25),
-							-5em -5em 0em rgba(255, 255, 255, 0.25),
-							-6em -6em 0em rgba(255, 255, 255, 0.25),
-							1em 1em 0em rgba(255, 255, 255, 0.25),
-							2em 2em 0em rgba(255, 255, 255, 0.25),
-							3em 3em 0em rgba(255, 255, 255, 0.25),
-							4em 4em 0em rgba(255, 255, 255, 0.25),
-							5em 5em 0em rgba(255, 255, 255, 0.25),
-							6em 6em 0em rgba(255, 255, 255, 0.25);
+						overflow:hidden;
+						width:310px;
+						height:310px;
+						border-radius:100%;
+						line-height:310px;
+						vertical-align:middle;
+						color:$col_bk;
+						font-size:1.6em;
+						transition:text-shadow 1s linear, color 1s linear, font-size 0.5s linear;
 					}
 					&:hover {
 						span{
 							text-shadow:none;
-							color:rgba(255,255,255,0.5);
-							transition:text-shadow 1s, color 3s;
+							color:$col_wh;
+							font-size:2.4em;
+							transition:text-shadow 1s linear, color 3s, font-size 0.5s linear;
 						}
 					}
 				}
@@ -230,21 +243,421 @@
 					top:$size;
 					left:$size * 2.5;
 					background-color:$col_ht;
+					span {
+						text-shadow:
+							-1em -1em 0em rgba(255, 255, 255, 0.10),
+							-2em -2em 0em rgba(255, 255, 255, 0.15),
+							-3em -3em 0em rgba(255, 255, 255, 0.20),
+							-4em -4em 0em rgba(255, 255, 255, 0.25),
+							-5em -5em 0em rgba(255, 255, 255, 0.30),
+							-6em -6em 0em rgba(255, 255, 255, 0.35),
+							1em 1em 0em rgba(255, 255, 255, 0.10),
+							2em 2em 0em rgba(255, 255, 255, 0.15),
+							3em 3em 0em rgba(255, 255, 255, 0.20),
+							4em 4em 0em rgba(255, 255, 255, 0.25),
+							5em 5em 0em rgba(255, 255, 255, 0.30),
+							6em 6em 0em rgba(255, 255, 255, 0.35),
+
+							3.5em 0em 0em rgba(255, 255, 255, 0.10),
+							2.5em -1em 0em rgba(255, 255, 255, 0.10),
+							1.5em -2em 0em rgba(255, 255, 255, 0.15),
+							0.5em -3em 0em rgba(255, 255, 255, 0.20),
+							-0.5em -4em 0em rgba(255, 255, 255, 0.25),
+							-1.5em -5em 0em rgba(255, 255, 255, 0.30),
+							-2.5em -6em 0em rgba(255, 255, 255, 0.35),
+							-3.5em -7em 0em rgba(255, 255, 255, 0.40),
+							4.5em 1em 0em rgba(255, 255, 255, 0.10),
+							5.5em 2em 0em rgba(255, 255, 255, 0.15),
+							6.5em 3em 0em rgba(255, 255, 255, 0.20),
+							7.5em 4em 0em rgba(255, 255, 255, 0.25),
+							8.5em 5em 0em rgba(255, 255, 255, 0.30),
+
+							7em 0em 0em rgba(255, 255, 255, 0.15),
+							6em -1em 0em rgba(255, 255, 255, 0.15),
+							5em -2em 0em rgba(255, 255, 255, 0.20),
+							4em -3em 0em rgba(255, 255, 255, 0.25),
+							3em -4em 0em rgba(255, 255, 255, 0.30),
+							2em -5em 0em rgba(255, 255, 255, 0.35),
+							1em -6em 0em rgba(255, 255, 255, 0.40),
+							0em -7em 0em rgba(255, 255, 255, 0.45),
+							-1em -8em 0em rgba(255, 255, 255, 0.50),
+							8em 1em 0em rgba(255, 255, 255, 0.10),
+							9em 2em 0em rgba(255, 255, 255, 0.15),
+							10em 3em 0em rgba(255, 255, 255, 0.20),
+							11em 4em 0em rgba(255, 255, 255, 0.25),
+
+							10.5em 0em 0em rgba(255, 255, 255, 0.20),
+							9.5em -1em 0em rgba(255, 255, 255, 0.20),
+							8.5em -2em 0em rgba(255, 255, 255, 0.25),
+							7.5em -3em 0em rgba(255, 255, 255, 0.30),
+							6.5em -4em 0em rgba(255, 255, 255, 0.35),
+							5.5em -5em 0em rgba(255, 255, 255, 0.40),
+							4.5em -6em 0em rgba(255, 255, 255, 0.45),
+							3.5em -7em 0em rgba(255, 255, 255, 0.50),
+							11.5em 1em 0em rgba(255, 255, 255, 0.25),
+							12.5em 2em 0em rgba(255, 255, 255, 0.30),
+							13.5em 3em 0em rgba(255, 255, 255, 0.35),
+
+							-3.5em 0em 0em rgba(255, 255, 255, 0.10),
+							-4.5em -1em 0em rgba(255, 255, 255, 0.15),
+							-5.5em -2em 0em rgba(255, 255, 255, 0.20),
+							-6.5em -3em 0em rgba(255, 255, 255, 0.25),
+							-7.5em -4em 0em rgba(255, 255, 255, 0.30),
+							-8.5em -5em 0em rgba(255, 255, 255, 0.35),
+							-2.5em 1em 0em rgba(255, 255, 255, 0.10),
+							-1.5em 2em 0em rgba(255, 255, 255, 0.15),
+							-0.5em 3em 0em rgba(255, 255, 255, 0.20),
+							0.5em 4em 0em rgba(255, 255, 255, 0.25),
+							1.5em 5em 0em rgba(255, 255, 255, 0.30),
+							2.5em 6em 0em rgba(255, 255, 255, 0.35),
+							3.5em 7em 0em rgba(255, 255, 255, 0.40),
+
+							-7em 0em 0em rgba(255, 255, 255, 0.15),
+							-8em -1em 0em rgba(255, 255, 255, 0.20),
+							-9em -2em 0em rgba(255, 255, 255, 0.25),
+							-10em -3em 0em rgba(255, 255, 255, 0.30),
+							-11em -4em 0em rgba(255, 255, 255, 0.35),
+							-6em 1em 0em rgba(255, 255, 255, 0.15),
+							-5em 2em 0em rgba(255, 255, 255, 0.20),
+							-4em 3em 0em rgba(255, 255, 255, 0.25),
+							-3em 4em 0em rgba(255, 255, 255, 0.30),
+							-2em 5em 0em rgba(255, 255, 255, 0.35),
+							-1em 6em 0em rgba(255, 255, 255, 0.40),
+							0em 7em 0em rgba(255, 255, 255, 0.45),
+							1em 8em 0em rgba(255, 255, 255, 0.50),
+
+							-10.5em 0em 0em rgba(221, 162, 162, 0.3),
+							-11.5em -1em 0em rgba(255, 255, 255, 0.25),
+							-12.5em -2em 0em rgba(255, 255, 255, 0.30),
+							-13.5em -3em 0em rgba(255, 255, 255, 0.35),
+							-9.5em 1em 0em rgba(255, 255, 255, 0.20),
+							-8.5em 2em 0em rgba(255, 255, 255, 0.25),
+							-7.5em 3em 0em rgba(255, 255, 255, 0.30),
+							-6.5em 4em 0em rgba(255, 255, 255, 0.35),
+							-5.5em 5em 0em rgba(255, 255, 255, 0.40),
+							-4.5em 6em 0em rgba(255, 255, 255, 0.45),
+							-3.5em 7em 0em rgba(255, 255, 255, 0.50);
+					}
 				}
 				.circle02{
 					top:$size;
 					right:$size * 2.5;
 					background-color:$col_cs;
+					span {
+						text-shadow:
+							-1em -1em 0em rgba(255, 255, 255, 0.10),
+							-2em -2em 0em rgba(255, 255, 255, 0.15),
+							-3em -3em 0em rgba(255, 255, 255, 0.20),
+							-4em -4em 0em rgba(255, 255, 255, 0.25),
+							-5em -5em 0em rgba(255, 255, 255, 0.30),
+							-6em -6em 0em rgba(255, 255, 255, 0.35),
+							1em 1em 0em rgba(255, 255, 255, 0.10),
+							2em 2em 0em rgba(255, 255, 255, 0.15),
+							3em 3em 0em rgba(255, 255, 255, 0.20),
+							4em 4em 0em rgba(255, 255, 255, 0.25),
+							5em 5em 0em rgba(255, 255, 255, 0.30),
+							6em 6em 0em rgba(255, 255, 255, 0.35),
+
+							2.5em 0em 0em rgba(255, 255, 255, 0.10),
+							1.5em -1em 0em rgba(255, 255, 255, 0.10),
+							0.5em -2em 0em rgba(255, 255, 255, 0.15),
+							-0.5em -3em 0em rgba(255, 255, 255, 0.20),
+							-1.5em -4em 0em rgba(255, 255, 255, 0.25),
+							-2.5em -5em 0em rgba(255, 255, 255, 0.30),
+							-3.5em -6em 0em rgba(255, 255, 255, 0.35),
+							-4.5em -7em 0em rgba(255, 255, 255, 0.40),
+							3.5em 1em 0em rgba(255, 255, 255, 0.10),
+							4.5em 2em 0em rgba(255, 255, 255, 0.15),
+							5.5em 3em 0em rgba(255, 255, 255, 0.20),
+							6.5em 4em 0em rgba(255, 255, 255, 0.25),
+							7.5em 5em 0em rgba(255, 255, 255, 0.30),
+
+							5em 0em 0em rgba(255, 255, 255, 0.15),
+							4em -1em 0em rgba(255, 255, 255, 0.15),
+							3em -2em 0em rgba(255, 255, 255, 0.20),
+							2em -3em 0em rgba(255, 255, 255, 0.25),
+							1em -4em 0em rgba(255, 255, 255, 0.30),
+							0em -5em 0em rgba(255, 255, 255, 0.35),
+							-1em -6em 0em rgba(255, 255, 255, 0.40),
+							-2em -7em 0em rgba(255, 255, 255, 0.45),
+							-3em -8em 0em rgba(255, 255, 255, 0.50),
+							6em 1em 0em rgba(255, 255, 255, 0.10),
+							7em 2em 0em rgba(255, 255, 255, 0.15),
+							8em 3em 0em rgba(255, 255, 255, 0.20),
+							9em 4em 0em rgba(255, 255, 255, 0.25),
+
+							7.5em 0em 0em rgba(255, 255, 255, 0.20),
+							6.5em -1em 0em rgba(255, 255, 255, 0.20),
+							5.5em -2em 0em rgba(255, 255, 255, 0.25),
+							4.5em -3em 0em rgba(255, 255, 255, 0.30),
+							3.5em -4em 0em rgba(255, 255, 255, 0.35),
+							2.5em -5em 0em rgba(255, 255, 255, 0.40),
+							1.5em -6em 0em rgba(255, 255, 255, 0.45),
+							0.5em -7em 0em rgba(255, 255, 255, 0.50),
+							8.5em 1em 0em rgba(255, 255, 255, 0.25),
+							9.5em 2em 0em rgba(255, 255, 255, 0.30),
+							10.5em 3em 0em rgba(255, 255, 255, 0.35),
+
+							10em 0em 0em rgba(255, 255, 255, 0.20),
+							9em -1em 0em rgba(255, 255, 255, 0.20),
+							8em -2em 0em rgba(255, 255, 255, 0.25),
+							7em -3em 0em rgba(255, 255, 255, 0.30),
+							6em -4em 0em rgba(255, 255, 255, 0.35),
+							5em -5em 0em rgba(255, 255, 255, 0.40),
+							4em -6em 0em rgba(255, 255, 255, 0.45),
+							11em 1em 0em rgba(255, 255, 255, 0.25),
+							12em 2em 0em rgba(255, 255, 255, 0.30),
+
+							-2.5em 0em 0em rgba(255, 255, 255, 0.10),
+							-3.5em -1em 0em rgba(255, 255, 255, 0.15),
+							-4.5em -2em 0em rgba(255, 255, 255, 0.20),
+							-5.5em -3em 0em rgba(255, 255, 255, 0.25),
+							-6.5em -4em 0em rgba(255, 255, 255, 0.30),
+							-7.5em -5em 0em rgba(255, 255, 255, 0.35),
+							-1.5em 1em 0em rgba(255, 255, 255, 0.10),
+							-0.5em 2em 0em rgba(255, 255, 255, 0.15),
+							0.5em 3em 0em rgba(255, 255, 255, 0.20),
+							1.5em 4em 0em rgba(255, 255, 255, 0.25),
+							2.5em 5em 0em rgba(255, 255, 255, 0.30),
+							3.5em 6em 0em rgba(255, 255, 255, 0.35),
+							4.5em 7em 0em rgba(255, 255, 255, 0.40),
+
+							-5em 0em 0em rgba(255, 255, 255, 0.15),
+							-6em -1em 0em rgba(255, 255, 255, 0.20),
+							-7em -2em 0em rgba(255, 255, 255, 0.25),
+							-8em -3em 0em rgba(255, 255, 255, 0.30),
+							-9em -4em 0em rgba(255, 255, 255, 0.35),
+							-4em 1em 0em rgba(255, 255, 255, 0.15),
+							-3em 2em 0em rgba(255, 255, 255, 0.20),
+							-2em 3em 0em rgba(255, 255, 255, 0.25),
+							-1em 4em 0em rgba(255, 255, 255, 0.30),
+							0em 5em 0em rgba(255, 255, 255, 0.35),
+							1em 6em 0em rgba(255, 255, 255, 0.40),
+							2em 7em 0em rgba(255, 255, 255, 0.45),
+							3em 8em 0em rgba(255, 255, 255, 0.50),
+
+							-7.5em 0em 0em rgba(255, 255, 255, 0.20),
+							-8.5em -1em 0em rgba(255, 255, 255, 0.25),
+							-9.5em -2em 0em rgba(255, 255, 255, 0.30),
+							-10.5em -3em 0em rgba(255, 255, 255, 0.35),
+							-6.5em 1em 0em rgba(255, 255, 255, 0.20),
+							-5.5em 2em 0em rgba(255, 255, 255, 0.25),
+							-4.5em 3em 0em rgba(255, 255, 255, 0.30),
+							-3.5em 4em 0em rgba(255, 255, 255, 0.35),
+							-2.5em 5em 0em rgba(255, 255, 255, 0.40),
+							-1.5em 6em 0em rgba(255, 255, 255, 0.45),
+							-0.5em 7em 0em rgba(255, 255, 255, 0.50),
+
+							-10em 0em 0em rgba(255, 255, 255, 0.20),
+							-11em -1em 0em rgba(255, 255, 255, 0.25),
+							-12em -2em 0em rgba(255, 255, 255, 0.30),
+							-9em 1em 0em rgba(255, 255, 255, 0.20),
+							-8em 2em 0em rgba(255, 255, 255, 0.25),
+							-7em 3em 0em rgba(255, 255, 255, 0.30),
+							-6em 4em 0em rgba(255, 255, 255, 0.35),
+							-5em 5em 0em rgba(255, 255, 255, 0.40),
+							-4em 6em 0em rgba(255, 255, 255, 0.45),
+					}
 				}
 				.circle03{
 					bottom:$size;
 					left:$size * 2.5;
 					background-color:$col_js;
+					span {
+						text-shadow:
+							-1em -1em 0em rgba(255, 255, 255, 0.10),
+							-2em -2em 0em rgba(255, 255, 255, 0.15),
+							-3em -3em 0em rgba(255, 255, 255, 0.20),
+							-4em -4em 0em rgba(255, 255, 255, 0.25),
+							-5em -5em 0em rgba(255, 255, 255, 0.30),
+							-6em -6em 0em rgba(255, 255, 255, 0.35),
+							1em 1em 0em rgba(255, 255, 255, 0.10),
+							2em 2em 0em rgba(255, 255, 255, 0.15),
+							3em 3em 0em rgba(255, 255, 255, 0.20),
+							4em 4em 0em rgba(255, 255, 255, 0.25),
+							5em 5em 0em rgba(255, 255, 255, 0.30),
+							6em 6em 0em rgba(255, 255, 255, 0.35),
+
+							5.3em 0em 0em rgba(255, 255, 255, 0.10),
+							4.3em -1em 0em rgba(255, 255, 255, 0.10),
+							3.3em -2em 0em rgba(255, 255, 255, 0.15),
+							2.3em -3em 0em rgba(255, 255, 255, 0.20),
+							1.3em -4em 0em rgba(255, 255, 255, 0.25),
+							0.3em -5em 0em rgba(255, 255, 255, 0.30),
+							-1.3em -6em 0em rgba(255, 255, 255, 0.35),
+							-2.3em -7em 0em rgba(255, 255, 255, 0.40),
+							6.3em 1em 0em rgba(255, 255, 255, 0.10),
+							7.3em 2em 0em rgba(255, 255, 255, 0.15),
+							8.3em 3em 0em rgba(255, 255, 255, 0.20),
+							9.3em 4em 0em rgba(255, 255, 255, 0.25),
+							10.3em 5em 0em rgba(255, 255, 255, 0.30),
+
+							10.6em 0em 0em rgba(255, 255, 255, 0.15),
+							9.6em -1em 0em rgba(255, 255, 255, 0.15),
+							8.6em -2em 0em rgba(255, 255, 255, 0.20),
+							7.6em -3em 0em rgba(255, 255, 255, 0.25),
+							6.6em -4em 0em rgba(255, 255, 255, 0.30),
+							5.6em -5em 0em rgba(255, 255, 255, 0.35),
+							4.6em -6em 0em rgba(255, 255, 255, 0.40),
+							3.6em -7em 0em rgba(255, 255, 255, 0.45),
+							2.6em -8em 0em rgba(255, 255, 255, 0.50),
+							11.6em 1em 0em rgba(255, 255, 255, 0.10),
+							12.6em 2em 0em rgba(255, 255, 255, 0.15),
+							13.6em 3em 0em rgba(255, 255, 255, 0.20),
+							14.6em 4em 0em rgba(255, 255, 255, 0.25),
+
+							15.9em 0em 0em rgba(255, 255, 255, 0.20),
+							14.9em -1em 0em rgba(255, 255, 255, 0.20),
+							13.9em -2em 0em rgba(255, 255, 255, 0.25),
+							12.9em -3em 0em rgba(255, 255, 255, 0.30),
+							11.9em -4em 0em rgba(255, 255, 255, 0.35),
+							10.9em -5em 0em rgba(255, 255, 255, 0.40),
+							9.9em -6em 0em rgba(255, 255, 255, 0.45),
+							8.9em -7em 0em rgba(255, 255, 255, 0.50),
+							16.9em 1em 0em rgba(255, 255, 255, 0.25),
+							17.9em 2em 0em rgba(255, 255, 255, 0.30),
+							18.9em 3em 0em rgba(255, 255, 255, 0.35),
+
+							-5.3em 0em 0em rgba(255, 255, 255, 0.10),
+							-6.3em -1em 0em rgba(255, 255, 255, 0.15),
+							-7.3em -2em 0em rgba(255, 255, 255, 0.20),
+							-8.3em -3em 0em rgba(255, 255, 255, 0.25),
+							-9.3em -4em 0em rgba(255, 255, 255, 0.30),
+							-10.3em -5em 0em rgba(255, 255, 255, 0.35),
+							-4.3em 1em 0em rgba(255, 255, 255, 0.10),
+							-3.3em 2em 0em rgba(255, 255, 255, 0.15),
+							-2.3em 3em 0em rgba(255, 255, 255, 0.20),
+							-1.3em 4em 0em rgba(255, 255, 255, 0.25),
+							-0.3em 5em 0em rgba(255, 255, 255, 0.30),
+							0.3em 6em 0em rgba(255, 255, 255, 0.35),
+							1.3em 7em 0em rgba(255, 255, 255, 0.40),
+
+							-10.6em 0em 0em rgba(255, 255, 255, 0.10),
+							-11.6em -1em 0em rgba(255, 255, 255, 0.15),
+							-12.6em -2em 0em rgba(255, 255, 255, 0.20),
+							-13.6em -3em 0em rgba(255, 255, 255, 0.25),
+							-14.6em -4em 0em rgba(255, 255, 255, 0.30),
+							-9.6em 1em 0em rgba(255, 255, 255, 0.10),
+							-8.6em 2em 0em rgba(255, 255, 255, 0.15),
+							-7.6em 3em 0em rgba(255, 255, 255, 0.20),
+							-6.6em 4em 0em rgba(255, 255, 255, 0.25),
+							-5.6em 5em 0em rgba(255, 255, 255, 0.30),
+							-4.6em 6em 0em rgba(255, 255, 255, 0.35),
+							-3.6em 7em 0em rgba(255, 255, 255, 0.40),
+							-2.6em 8em 0em rgba(255, 255, 255, 0.40),
+
+							-15.9em 0em 0em rgba(255, 255, 255, 0.20),
+							-16.9em -1em 0em rgba(255, 255, 255, 0.25),
+							-17.9em -2em 0em rgba(255, 255, 255, 0.30),
+							-18.9em -3em 0em rgba(255, 255, 255, 0.35),
+							-14.9em 1em 0em rgba(255, 255, 255, 0.20),
+							-13.9em 2em 0em rgba(255, 255, 255, 0.25),
+							-12.9em 3em 0em rgba(255, 255, 255, 0.30),
+							-11.9em 4em 0em rgba(255, 255, 255, 0.35),
+							-10.9em 5em 0em rgba(255, 255, 255, 0.40),
+							-9.9em 6em 0em rgba(255, 255, 255, 0.45),
+							-8.9em 7em 0em rgba(255, 255, 255, 0.50);
+					}
 				}
 				.circle04{
 					bottom:$size;
 					right:$size * 2.5;
 					background-color:$col_jq;
+					span {
+						text-shadow:
+							-1em -1em 0em rgba(255, 255, 255, 0.10),
+							-2em -2em 0em rgba(255, 255, 255, 0.15),
+							-3em -3em 0em rgba(255, 255, 255, 0.20),
+							-4em -4em 0em rgba(255, 255, 255, 0.25),
+							-5em -5em 0em rgba(255, 255, 255, 0.30),
+							-6em -6em 0em rgba(255, 255, 255, 0.35),
+							1em 1em 0em rgba(255, 255, 255, 0.10),
+							2em 2em 0em rgba(255, 255, 255, 0.15),
+							3em 3em 0em rgba(255, 255, 255, 0.20),
+							4em 4em 0em rgba(255, 255, 255, 0.25),
+							5em 5em 0em rgba(255, 255, 255, 0.30),
+							6em 6em 0em rgba(255, 255, 255, 0.35),
+
+							3.5em 0em 0em rgba(255, 255, 255, 0.10),
+							2.5em -1em 0em rgba(255, 255, 255, 0.10),
+							1.5em -2em 0em rgba(255, 255, 255, 0.15),
+							0.5em -3em 0em rgba(255, 255, 255, 0.20),
+							-0.5em -4em 0em rgba(255, 255, 255, 0.25),
+							-1.5em -5em 0em rgba(255, 255, 255, 0.30),
+							-2.5em -6em 0em rgba(255, 255, 255, 0.35),
+							-3.5em -7em 0em rgba(255, 255, 255, 0.40),
+							4.5em 1em 0em rgba(255, 255, 255, 0.10),
+							5.5em 2em 0em rgba(255, 255, 255, 0.15),
+							6.5em 3em 0em rgba(255, 255, 255, 0.20),
+							7.5em 4em 0em rgba(255, 255, 255, 0.25),
+							8.5em 5em 0em rgba(255, 255, 255, 0.30),
+
+							7em 0em 0em rgba(255, 255, 255, 0.15),
+							6em -1em 0em rgba(255, 255, 255, 0.15),
+							5em -2em 0em rgba(255, 255, 255, 0.20),
+							4em -3em 0em rgba(255, 255, 255, 0.25),
+							3em -4em 0em rgba(255, 255, 255, 0.30),
+							2em -5em 0em rgba(255, 255, 255, 0.35),
+							1em -6em 0em rgba(255, 255, 255, 0.40),
+							0em -7em 0em rgba(255, 255, 255, 0.45),
+							-1em -8em 0em rgba(255, 255, 255, 0.50),
+							8em 1em 0em rgba(255, 255, 255, 0.10),
+							9em 2em 0em rgba(255, 255, 255, 0.15),
+							10em 3em 0em rgba(255, 255, 255, 0.20),
+							11em 4em 0em rgba(255, 255, 255, 0.25),
+
+							10.5em 0em 0em rgba(255, 255, 255, 0.20),
+							9.5em -1em 0em rgba(255, 255, 255, 0.20),
+							8.5em -2em 0em rgba(255, 255, 255, 0.25),
+							7.5em -3em 0em rgba(255, 255, 255, 0.30),
+							6.5em -4em 0em rgba(255, 255, 255, 0.35),
+							5.5em -5em 0em rgba(255, 255, 255, 0.40),
+							4.5em -6em 0em rgba(255, 255, 255, 0.45),
+							3.5em -7em 0em rgba(255, 255, 255, 0.50),
+							11.5em 1em 0em rgba(255, 255, 255, 0.25),
+							12.5em 2em 0em rgba(255, 255, 255, 0.30),
+							13.5em 3em 0em rgba(255, 255, 255, 0.35),
+
+							-3.5em 0em 0em rgba(255, 255, 255, 0.10),
+							-4.5em -1em 0em rgba(255, 255, 255, 0.15),
+							-5.5em -2em 0em rgba(255, 255, 255, 0.20),
+							-6.5em -3em 0em rgba(255, 255, 255, 0.25),
+							-7.5em -4em 0em rgba(255, 255, 255, 0.30),
+							-8.5em -5em 0em rgba(255, 255, 255, 0.35),
+							-2.5em 1em 0em rgba(255, 255, 255, 0.10),
+							-1.5em 2em 0em rgba(255, 255, 255, 0.15),
+							-0.5em 3em 0em rgba(255, 255, 255, 0.20),
+							0.5em 4em 0em rgba(255, 255, 255, 0.25),
+							1.5em 5em 0em rgba(255, 255, 255, 0.30),
+							2.5em 6em 0em rgba(255, 255, 255, 0.35),
+							3.5em 7em 0em rgba(255, 255, 255, 0.40),
+
+							-7em 0em 0em rgba(255, 255, 255, 0.15),
+							-8em -1em 0em rgba(255, 255, 255, 0.20),
+							-9em -2em 0em rgba(255, 255, 255, 0.25),
+							-10em -3em 0em rgba(255, 255, 255, 0.30),
+							-11em -4em 0em rgba(255, 255, 255, 0.35),
+							-6em 1em 0em rgba(255, 255, 255, 0.15),
+							-5em 2em 0em rgba(255, 255, 255, 0.20),
+							-4em 3em 0em rgba(255, 255, 255, 0.25),
+							-3em 4em 0em rgba(255, 255, 255, 0.30),
+							-2em 5em 0em rgba(255, 255, 255, 0.35),
+							-1em 6em 0em rgba(255, 255, 255, 0.40),
+							0em 7em 0em rgba(255, 255, 255, 0.45),
+							1em 8em 0em rgba(255, 255, 255, 0.50),
+
+							-10.5em 0em 0em rgba(255, 255, 255, 0.20),
+							-11.5em -1em 0em rgba(255, 255, 255, 0.25),
+							-12.5em -2em 0em rgba(255, 255, 255, 0.30),
+							-13.5em -3em 0em rgba(255, 255, 255, 0.35),
+							-9.5em 1em 0em rgba(255, 255, 255, 0.20),
+							-8.5em 2em 0em rgba(255, 255, 255, 0.25),
+							-7.5em 3em 0em rgba(255, 255, 255, 0.30),
+							-6.5em 4em 0em rgba(255, 255, 255, 0.35),
+							-5.5em 5em 0em rgba(255, 255, 255, 0.40),
+							-4.5em 6em 0em rgba(255, 255, 255, 0.45),
+							-3.5em 7em 0em rgba(255, 255, 255, 0.50);
+					}
 				}
 			}
 		}
@@ -259,6 +672,7 @@
 			color: $col_wh;
 			transition:transform 0.2s;
 			.fir_ment{
+				display:none;
 				.txt_mask {
 					display:block;
 					position:relative;
@@ -278,6 +692,9 @@
 						background-size:100% 0%;
 						transition: background-size .5s cubic-bezier(0.67, 0.01, 0.15, 0.98);
 						text-transform:uppercase;
+						&.on {
+							background-size:100% 200%;
+						}
 					}
 				}
 			}

@@ -35,13 +35,18 @@ const ui = {
 			});
 		},
 		evtHandler : function($target, $btn, $cAll, scT, sec2T, sec3T){
+			let _this = this;
 			if( scT <= sec2T ){
 				/* 원 Animation */
 				let rotMat = (sec2T - scT) / sec2T,
 					rotParese = parseInt((100 - rotMat * 100) * 3.6);
 				$target.css({'transform':'translate(-50%, -50%)'})
 				$btn.css({'transform':'scale('+rotMat.toFixed(1)+') rotate('+ rotParese +'deg)'});
-				$cAll.find('span').css({'font-size':'0px'});
+				if( !$btn.find('.fir_ment').hasClass('disb') ){
+					_this.displayEvt($btn, '.fir_ment');
+				}
+
+				$cAll.find('span').css({'transform':'scale(0)'});
 			} else if ( scT <= sec3T ) {
 				/* 원 Animation */
 				$target.css({'transform':'translate(-50%, -50%)'})
@@ -52,14 +57,17 @@ const ui = {
 				if( harfMat <= 1 ){
 					/* 원 Animation */
 					$btn.css({'transform':'scale(0)  rotate(360deg)'});
-					$cAll.find('span').css({'font-size':harfMat * 24 + 'px'});
+					if( !$btn.find('.sec_ment').hasClass('disb') ){
+						_this.displayEvt($btn, '.sec_ment');
+					}
+					$cAll.find('span').css({'transform':'scale('+harfMat + ')'});
 					if( $cAll.closest('.circle_box').hasClass('active') ){
 						$cAll.closest('.circle_box').removeClass('active');
 					}
 				} else if ( harfMat > 1 && harfMat <= 1.5 ) {
 					/* 원 Animation */
 					$btn.css({'transform':'scale(1)  rotate(360deg)'});
-					$cAll.css({'font-size':'24px'});
+					$cAll.find('span').css({'transform':'scale(1)'});
 					$cAll.closest('.circle_box').addClass('active');
 					
 				} else {
@@ -78,7 +86,10 @@ const ui = {
 				$firEle.find('.txt').removeAttr('style');
 				$firEle.find('.txt').css({'-webkit-background-clip':'text'});
 				$firEle.find('.txt').each(function(){
-					$(this).delay(i*400).css({'background-size':'100% 200%'});
+					$(this).delay(i*200).queue(function(next) {
+						$(this).addClass("on");
+						next();
+					});
 					i++
 				}, i*400);
 			}
@@ -93,10 +104,20 @@ const ui = {
 				$firEle.find('.txt').removeAttr('style');
 				$firEle.find('.txt').css({'-webkit-background-clip':'text'});
 				$firEle.find('.txt').each(function(){
-					$(this).delay(i*400).css({'background-size':'100% 0'});
+					$(this).delay(i*200).queue(function(next) {
+						$(this).removeClass("on");
+						next();
+					});
 					i++
 				}, i*400);
 			}
+		},
+		displayEvt : function($btn, txt){
+			let _this  = this;
+
+			$btn.children('div').removeClass('disb');
+			$btn.find(txt).addClass('disb');
+
 		}
 	},
 	mouse : {
