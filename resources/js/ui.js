@@ -1,8 +1,7 @@
-const tl = gsap.timeline();
 const ui = {
 	init : function(){
 		this.oninit.init();
-		if( $('.animate_wrap').length > 0 ) { this.circle.init() }  // Scroll Evt
+		if( $('.animate_wrap').length > 0 ) { this.circle.init() }	// Scroll Evt
 		if( $('.visual_wrap').length > 0 ) { this.mouse.init() }	// Mouse Over Evt
 	},
 	oninit : {
@@ -10,6 +9,10 @@ const ui = {
 			//로딩끝
 
 			//시작이벤트
+			this.sec02Evt();
+		},
+		sec02Evt : function(){
+			
 		}
 	},
 	circle : {
@@ -28,10 +31,14 @@ const ui = {
 			});
 
 			$btn.on('mouseenter', function(){
-				_this.enter($(this));
+				if( !$btn.siblings('.circle_box').hasClass('active') ){
+					_this.enter($(this));
+				}
 			});
 			$btn.on('mouseleave', function(){
-				_this.leave($(this));
+				if( !$btn.siblings('.circle_box').hasClass('active') ){
+					_this.leave($(this));
+				}
 			});
 		},
 		evtHandler : function($target, $btn, $cAll, scT, sec2T, sec3T){
@@ -40,7 +47,7 @@ const ui = {
 				/* 원 Animation */
 				let rotMat = (sec2T - scT) / sec2T,
 					rotParese = parseInt((100 - rotMat * 100) * 3.6);
-				$target.css({'transform':'translate(-50%, -50%)'})
+				//$target.css({'transform':'translate(-50%, -50%)'})
 				$btn.css({'transform':'scale('+rotMat.toFixed(1)+') rotate('+ rotParese +'deg)'});
 				if( !$btn.find('.fir_ment').hasClass('disb') ){
 					_this.displayEvt($btn, '.fir_ment');
@@ -49,7 +56,7 @@ const ui = {
 				$cAll.find('span').css({'transform':'scale(0)'});
 			} else if ( scT <= sec3T ) {
 				/* 원 Animation */
-				$target.css({'transform':'translate(-50%, -50%)'})
+				//$target.css({'transform':'translate(-50%, -50%)'})
 
 				let pagMat = parseInt(100 - ((sec3T - sec2T - scT) / sec3T * 100)),
 					harfSec3T = ((sec3T - sec2T) / 2);
@@ -69,12 +76,16 @@ const ui = {
 					$btn.css({'transform':'scale(1)  rotate(360deg)'});
 					$cAll.find('span').css({'transform':'scale(1)'});
 					$cAll.closest('.circle_box').addClass('active');
-					
 				} else {
+					if( scT >= sec3T - $(window).height() ) {
+						$target.css({'position':'absolute', 'top':sec3T - $(window).height()/2 + 'px'});
+					} else {
+						$target.css({'position':'fixed', 'top':'50%'});
+					}
 				}
 			} else {
 				/* 원 Animation */
-				$target.css({'transform':'translate(-50%, -50%)'})
+				//$target.css({'transform':'translate(-50%, -50%)'})
 			};
 		},
 		enter : function($this){
@@ -86,7 +97,8 @@ const ui = {
 				$firEle.find('.txt').removeAttr('style');
 				$firEle.find('.txt').css({'-webkit-background-clip':'text'});
 				$firEle.find('.txt').each(function(){
-					$(this).delay(i*200).queue(function(next) {
+					$(this).clearQueue();
+					$(this).delay(i*100).queue(function(next) {
 						$(this).addClass("on");
 						next();
 					});
@@ -104,7 +116,8 @@ const ui = {
 				$firEle.find('.txt').removeAttr('style');
 				$firEle.find('.txt').css({'-webkit-background-clip':'text'});
 				$firEle.find('.txt').each(function(){
-					$(this).delay(i*200).queue(function(next) {
+					$(this).clearQueue();
+					$(this).delay(i*100).queue(function(next) {
 						$(this).removeClass("on");
 						next();
 					});

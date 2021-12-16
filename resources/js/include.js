@@ -10,8 +10,11 @@ let include = {
     },
     comJs : function(){
         document.write('<script src="/resources/js/jquery-3.6.0.slim.min.js"></script>');
-        document.write('<script src="/resources/js/gsap.min.js"></script>');
+        document.write('<script src="/resources/js/lib/ytPlayer.js"></script>');
+        document.write('<script src="/resources/js/lib/particles.js"></script>');
         document.write('<script src="/resources/js/ui.js"></script>');
-        document.write('<script src="/resources/js/ytPlayer.js"></script>');
+    },
+    endJS : function(){
+        document.write('<script src="/resources/js/lib/app.js"></script>');
     }
 }
