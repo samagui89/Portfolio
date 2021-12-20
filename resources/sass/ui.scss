@@ -143,8 +143,144 @@
 		}
 	}
 	.sec03 {
+		position:relative;
 		height:100vh;
 		background-color:#ddd;
+		z-index:1;
+		.work_list{
+			li{
+				position:relative;
+				display:block;
+				padding:50px 0;
+				
+				.card {
+					width:1200px;
+					height:800px;
+					margin:0 auto;
+					perspective: 1500px;
+					> input[type="checkbox"] {
+						position:absolute;
+						top:50%;
+						left:50%;
+						width:1px;
+						height:1px;
+						z-index:-1;
+	
+						&:checked ~ .card_inner{
+							transform: rotateY(180deg);
+						}
+					}
+					.card_inner {
+						position:relative;
+						width:100%;
+						height:100%;
+						transform-style: preserve-3d;
+						transition:transform 0.8s cubic-bezier(0.75, 0, 0.85, 1);
+						.front,
+						.back {
+							position:absolute;
+							top:0;
+							left:0;
+							width:100%;
+							height:100%;
+							backface-visibility: hidden;
+							transform-style: preserve-3d;
+							border-radius: 6px;
+						}
+						.front {
+							background-repeat:no-repeat;
+							background-size:110vw auto;
+							background-position:top left;
+							animation: bgMove 12s linear infinite;
+							&:after {
+								content:'';
+								position:absolute;
+								top:0;
+								left:0;
+								width:100%;
+								height:100%;
+								display:block;
+								border-radius:6px;
+								backface-visibility: hidden;
+								background: linear-gradient(
+									40deg,
+									rgba(67, 138, 243, 0.7),
+									rgba(255, 242, 166, 0.7)
+								);
+							}
+							&.work01{
+								background-image:url('/resources/images/works/img_work_01_main_01.png');
+							}
+							&.work02{
+								background-image:url('/resources/images/works/img_work_01_main_02.png');
+							}
+							&.work03{
+								background-image:url('/resources/images/works/img_work_01_main_03.png');
+							}
+							&.work04{
+								background-image:url('/resources/images/works/img_work_01_main_04.png');
+							}
+							&.work05{
+								background-image:url('/resources/images/works/img_work_01_main_05.png');
+							}
+							&.work06{
+								background-image:url('/resources/images/works/img_work_01_main_06.png');
+							}
+							&.work07{
+								background-image:url('/resources/images/works/img_work_01_main_07.png');
+							}
+							&.work08{
+								background-image:url('/resources/images/works/img_work_01_main_08.png');
+							}
+							&.work09{
+								background-image:url('/resources/images/works/img_work_01_main_09.png');
+							}
+							&.work10{
+								background-image:url('/resources/images/works/img_work_01_main_10.png');
+							}
+							&.work11{
+								background-image:url('/resources/images/works/img_work_01_main_11.png');
+							}
+							&.work12{
+								background-image:url('/resources/images/works/img_work_01_main_12.png');
+							}
+							.inner {
+								position:absolute;
+								top:50%;
+								left:50%;
+								transform:translate(-50%, -50%);
+								text-align:center;
+								z-index:2;
+								.title {
+									color:$col_wh;
+									font-size:2.8em;
+									font-weight:600;
+								}
+								label {
+									display:inline-block;
+									margin-top:30px;
+									padding:10px 30px;
+									border:3px solid $col_wh;
+									border-radius:6px;
+									color:$col_wh;
+									font-size:1.8em;
+									cursor:pointer;
+								}
+							}
+						}
+						.back {
+							transform: rotateY(180deg);
+							background-color:$col_wh;
+							border:2px solid linear-gradient(
+								40deg,
+								rgba(67, 138, 243, 0.7),
+								rgba(255, 242, 166, 0.7)
+							);
+						}
+					}
+				}
+			}
+		}
 	}
 	.animate_wrap {
 		position:fixed;
@@ -303,7 +439,7 @@
 				.circle01{
 					top:$size;
 					left:$size * 2.5;
-					background-color:$col_ht;
+					background:$col_ht;
 					span {
 						text-shadow:
 							-1em -1em 0em rgba(255, 255, 255, 0.10),
@@ -403,7 +539,7 @@
 				.circle02{
 					top:$size;
 					right:$size * 2.5;
-					background-color:$col_cs;
+					background:$col_cs;
 					span {
 						text-shadow:
 							-1em -1em 0em rgba(255, 255, 255, 0.10),
@@ -523,7 +659,7 @@
 				.circle03{
 					bottom:$size;
 					left:$size * 2.5;
-					background-color:$col_js;
+					background:$col_js;
 					span {
 						text-shadow:
 							-1em -1em 0em rgba(255, 255, 255, 0.10),
@@ -623,7 +759,7 @@
 				.circle04{
 					bottom:$size;
 					right:$size * 2.5;
-					background-color:$col_jq;
+					background:$col_jq;
 					span {
 						text-shadow:
 							-1em -1em 0em rgba(255, 255, 255, 0.10),
@@ -781,25 +917,25 @@
 						&.box01 {
 							animation:secMent 12s linear 0s infinite;
 							span {
-								background-color:$col_ht;
+								background:$col_ht;
 							}
 						}
 						&.box02 {
 							animation:secMent 12s linear 2s infinite;
 							span {
-								background-color:$col_cs;
+								background:$col_cs;
 							}
 						}
 						&.box03 {
 							animation:secMent 12s linear 4s infinite;
 							span {
-								background-color:$col_js;
+								background:$col_js;
 							}
 						}
 						&.box04 {
 							animation:secMent 12s linear 6s infinite;
 							span {
-								background-color:$col_jq;
+								background:$col_jq;
 							}
 						}
 						&.box05 {

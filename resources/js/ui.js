@@ -77,8 +77,8 @@ const ui = {
 					$cAll.find('span').css({'transform':'scale(1)'});
 					$cAll.closest('.circle_box').addClass('active');
 				} else {
-					if( scT >= sec3T - $(window).height() ) {
-						$target.css({'position':'absolute', 'top':sec3T - $(window).height()/2 + 'px'});
+					if( scT >= sec3T - $(window).height() - 200 ) {
+						$target.css({'position':'absolute', 'top':sec3T - $(window).height()/2 - 100 + 'px'});
 					} else {
 						$target.css({'position':'fixed', 'top':'50%'});
 					}
