@@ -90,10 +90,27 @@
 	100% {margin:0;border-radius:100% 100% 100% 100%;transform:scale(1);}
 }
 
-@keyframes bgMove {
+@keyframes bgtlbrMove {
+	from {background-position:top left;}
+	50% {background-position:bottom right;}
+	to {background-position:top left;}
+}
+@keyframes bgtrblMove {
+	from {background-position:top right;}
+	50% {background-position:bottom left;}
+	to {background-position:top right;}
+}
+@keyframes bgtlcrblMove {
 	from {background-position:top left;}
 	25% {background-position:center right;}
 	50% {background-position:bottom left;}
 	75% {background-position:center right;}
 	to {background-position:top left;}
+}
+@keyframes bgtrclbrMove {
+	from {background-position:top right;}
+	25% {background-position:center left;}
+	50% {background-position:bottom right;}
+	75% {background-position:center left;}
+	to {background-position:top right;}
 }

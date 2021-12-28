@@ -71,11 +71,11 @@ svg { z-index: 1; }
 
 .content .sec02 path { stroke-dasharray: 7150; stroke-dashoffset: 7150; }
 
-.content .sec03 { position: relative; height: 100vh; background-color: #ddd; z-index: 1; }
+.content .sec03 { position: relative; padding: 100px 0; background-color: #ddd; z-index: 1; }
 
-.content .sec03 .work_list li { position: relative; display: block; padding: 50px 0; }
+.content .sec03 .work_list li { position: relative; display: block; width: 1100px; height: 800px; margin: 60px auto; -webkit-transition: all .1s linear; transition: all .1s linear; -webkit-perspective-origin: center; perspective-origin: center; -webkit-perspective: 1200px; perspective: 1200px; }
 
-.content .sec03 .work_list li .card { width: 1200px; height: 800px; margin: 0 auto; -webkit-perspective: 1500px; perspective: 1500px; }
+.content .sec03 .work_list li .card { position: absolute; top: 0; left: 0; width: 100%; height: 800px; margin: 0 auto; -webkit-transform: scale(0.9) rotateX(-15deg); transform: scale(0.9) rotateX(-15deg); -webkit-transition: -webkit-transform .2s linear; transition: -webkit-transform .2s linear; transition: transform .2s linear; transition: transform .2s linear, -webkit-transform .2s linear; -webkit-perspective: 1200px; perspective: 1200px; }
 
 .content .sec03 .work_list li .card > input[type="checkbox"] { position: absolute; top: 50%; left: 50%; width: 1px; height: 1px; z-index: -1; }
 
@@ -85,41 +85,57 @@ svg { z-index: 1; }
 
 .content .sec03 .work_list li .card .card_inner .front, .content .sec03 .work_list li .card .card_inner .back { position: absolute; top: 0; left: 0; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; -webkit-transform-style: preserve-3d; transform-style: preserve-3d; border-radius: 6px; }
 
-.content .sec03 .work_list li .card .card_inner .front { background-repeat: no-repeat; background-size: 110vw auto; background-position: top left; -webkit-animation: bgMove 12s linear infinite; animation: bgMove 12s linear infinite; }
+.content .sec03 .work_list li .card .card_inner .front .inner, .content .sec03 .work_list li .card .card_inner .back .inner { height: 100%; display: -ms-grid; display: grid; padding: 1.5em; -webkit-transform: translateZ(80px) scale(0.94); transform: translateZ(80px) scale(0.94); }
+
+.content .sec03 .work_list li .card .card_inner .front { background-repeat: no-repeat; background-size: 150% auto; background-position: top left; }
 
 .content .sec03 .work_list li .card .card_inner .front:after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: block; border-radius: 6px; -webkit-backface-visibility: hidden; backface-visibility: hidden; background: linear-gradient(40deg, rgba(67, 138, 243, 0.7), rgba(255, 242, 166, 0.7)); }
 
-.content .sec03 .work_list li .card .card_inner .front.work01 { background-image: url("/resources/images/works/img_work_01_main_01.png"); }
+.content .sec03 .work_list li .card .card_inner .front.work01 { background-image: url("/resources/images/works/img_work_01_main_01.png"); -webkit-animation: bgtlcrblMove 30s linear infinite; animation: bgtlcrblMove 30s linear infinite; }
 
-.content .sec03 .work_list li .card .card_inner .front.work02 { background-image: url("/resources/images/works/img_work_01_main_02.png"); }
+.content .sec03 .work_list li .card .card_inner .front.work02 { background-image: url("/resources/images/works/img_work_02_main_01.png"); -webkit-animation: bgtrclbrMove 30s linear infinite; animation: bgtrclbrMove 30s linear infinite; }
 
-.content .sec03 .work_list li .card .card_inner .front.work03 { background-image: url("/resources/images/works/img_work_01_main_03.png"); }
+.content .sec03 .work_list li .card .card_inner .front.work03 { background-image: url("/resources/images/works/img_work_03_main_01.png"); -webkit-animation: bgtlbrMove 30s linear infinite; animation: bgtlbrMove 30s linear infinite; }
 
-.content .sec03 .work_list li .card .card_inner .front.work04 { background-image: url("/resources/images/works/img_work_01_main_04.png"); }
+.content .sec03 .work_list li .card .card_inner .front.work04 { background-image: url("/resources/images/works/img_work_04_main_01.png"); -webkit-animation: bgtrblMove 30s linear infinite; animation: bgtrblMove 30s linear infinite; }
 
-.content .sec03 .work_list li .card .card_inner .front.work05 { background-image: url("/resources/images/works/img_work_01_main_05.png"); }
+.content .sec03 .work_list li .card .card_inner .front.work05 { background-image: url("/resources/images/works/img_work_05_main_01.png"); -webkit-animation: bgtlcrblMove 30s linear infinite; animation: bgtlcrblMove 30s linear infinite; }
 
-.content .sec03 .work_list li .card .card_inner .front.work06 { background-image: url("/resources/images/works/img_work_01_main_06.png"); }
+.content .sec03 .work_list li .card .card_inner .front.work06 { background-image: url("/resources/images/works/img_work_06_main_01.png"); -webkit-animation: bgtrclbrMove 30s linear infinite; animation: bgtrclbrMove 30s linear infinite; }
 
-.content .sec03 .work_list li .card .card_inner .front.work07 { background-image: url("/resources/images/works/img_work_01_main_07.png"); }
+.content .sec03 .work_list li .card .card_inner .front.work07 { background-image: url("/resources/images/works/img_work_07_main_01.png"); -webkit-animation: bgtlbrMove 30s linear infinite; animation: bgtlbrMove 30s linear infinite; }
 
-.content .sec03 .work_list li .card .card_inner .front.work08 { background-image: url("/resources/images/works/img_work_01_main_08.png"); }
+.content .sec03 .work_list li .card .card_inner .front.work08 { background-image: url("/resources/images/works/img_work_08_main_01.png"); -webkit-animation: bgtrblMove 30s linear infinite; animation: bgtrblMove 30s linear infinite; }
 
-.content .sec03 .work_list li .card .card_inner .front.work09 { background-image: url("/resources/images/works/img_work_01_main_09.png"); }
+.content .sec03 .work_list li .card .card_inner .front.work09 { background-image: url("/resources/images/works/img_work_09_main_01.png"); -webkit-animation: bgtlcrblMove 30s linear infinite; animation: bgtlcrblMove 30s linear infinite; }
 
-.content .sec03 .work_list li .card .card_inner .front.work10 { background-image: url("/resources/images/works/img_work_01_main_10.png"); }
+.content .sec03 .work_list li .card .card_inner .front.work10 { background-image: url("/resources/images/works/img_work_10_main_01.png"); -webkit-animation: bgtrclbrMove 30s linear infinite; animation: bgtrclbrMove 30s linear infinite; }
 
-.content .sec03 .work_list li .card .card_inner .front.work11 { background-image: url("/resources/images/works/img_work_01_main_11.png"); }
+.content .sec03 .work_list li .card .card_inner .front.work11 { background-image: url("/resources/images/works/img_work_11_main_01.png"); -webkit-animation: bgtlbrMove 30s linear infinite; animation: bgtlbrMove 30s linear infinite; }
 
-.content .sec03 .work_list li .card .card_inner .front.work12 { background-image: url("/resources/images/works/img_work_01_main_12.png"); }
+.content .sec03 .work_list li .card .card_inner .front.work12 { background-image: url("/resources/images/works/img_work_12_main_01.png"); -webkit-animation: bgtrblMove 30s linear infinite; animation: bgtrblMove 30s linear infinite; }
 
-.content .sec03 .work_list li .card .card_inner .front .inner { position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); text-align: center; z-index: 2; }
+.content .sec03 .work_list li .card .card_inner .front .inner { -ms-grid-rows: 3.5fr 1fr 1fr 1fr 3.5fr; grid-template-rows: 3.5fr 1fr 1fr 1fr 3.5fr; justify-items: center; -webkit-transform: translateZ(80px) scale(0.94); transform: translateZ(80px) scale(0.94); text-align: center; z-index: 2; }
 
-.content .sec03 .work_list li .card .card_inner .front .inner .title { color: #ffffff; font-size: 2.8em; font-weight: 600; }
+.content .sec03 .work_list li .card .card_inner .front .inner .owner { -ms-grid-row: 2; grid-row: 2; color: #ffffff; font-size: 2.0em; font-weight: 600; }
 
-.content .sec03 .work_list li .card .card_inner .front .inner label { display: inline-block; margin-top: 30px; padding: 10px 30px; border: 3px solid #ffffff; border-radius: 6px; color: #ffffff; font-size: 1.8em; cursor: pointer; }
+.content .sec03 .work_list li .card .card_inner .front .inner .title { -ms-grid-row: 3; grid-row: 3; color: #ffffff; font-size: 2.8em; font-weight: 600; }
+
+.content .sec03 .work_list li .card .card_inner .front .inner label { -ms-grid-row: 4; grid-row: 4; display: inline-block; margin-top: 30px; padding: 10px 30px; border: 3px solid #ffffff; border-radius: 6px; color: #ffffff; font-size: 1.8em; cursor: pointer; }
 
 .content .sec03 .work_list li .card .card_inner .back { -webkit-transform: rotateY(180deg); transform: rotateY(180deg); background-color: #ffffff; border: 2px solid linear-gradient(40deg, rgba(67, 138, 243, 0.7), rgba(255, 242, 166, 0.7)); }
+
+.content .sec03 .work_list li.active { width: 1200px; }
+
+.content .sec03 .work_list li.active .card { -webkit-transform: scale(1) rotateX(0deg); transform: scale(1) rotateX(0deg); }
+
+.content .sec03 .work_list li.rotate { width: 1100px; }
+
+.content .sec03 .work_list li.rotate .card { -webkit-transform: scale(0.9) rotateX(15deg); transform: scale(0.9) rotateX(15deg); }
+
+.content .sec03:after { content: ''; clear: both; display: block; }
+
+.content .sec04 { position: relative; background-color: #ffffff; z-index: 1; }
 
 .content .animate_wrap { position: fixed; top: 50%; left: 50%; width: 500px; height: 500px; -webkit-transform: translate(-50%, -50%) rotate(0deg); transform: translate(-50%, -50%) rotate(0deg); -webkit-transition: -webkit-transform 0.5s; transition: -webkit-transform 0.5s; transition: transform 0.5s; transition: transform 0.5s, -webkit-transform 0.5s; z-index: 10; }
 
@@ -637,14 +653,42 @@ svg { z-index: 1; }
     -webkit-transform: scale(1);
             transform: scale(1); } }
 
-@-webkit-keyframes bgMove { from { background-position: top left; }
+@-webkit-keyframes bgtlbrMove { from { background-position: top left; }
+  50% { background-position: bottom right; }
+  to { background-position: top left; } }
+
+@keyframes bgtlbrMove { from { background-position: top left; }
+  50% { background-position: bottom right; }
+  to { background-position: top left; } }
+
+@-webkit-keyframes bgtrblMove { from { background-position: top right; }
+  50% { background-position: bottom left; }
+  to { background-position: top right; } }
+
+@keyframes bgtrblMove { from { background-position: top right; }
+  50% { background-position: bottom left; }
+  to { background-position: top right; } }
+
+@-webkit-keyframes bgtlcrblMove { from { background-position: top left; }
   25% { background-position: center right; }
   50% { background-position: bottom left; }
   75% { background-position: center right; }
   to { background-position: top left; } }
 
-@keyframes bgMove { from { background-position: top left; }
+@keyframes bgtlcrblMove { from { background-position: top left; }
   25% { background-position: center right; }
   50% { background-position: bottom left; }
   75% { background-position: center right; }
   to { background-position: top left; } }
+
+@-webkit-keyframes bgtrclbrMove { from { background-position: top right; }
+  25% { background-position: center left; }
+  50% { background-position: bottom right; }
+  75% { background-position: center left; }
+  to { background-position: top right; } }
+
+@keyframes bgtrclbrMove { from { background-position: top right; }
+  25% { background-position: center left; }
+  50% { background-position: bottom right; }
+  75% { background-position: center left; }
+  to { background-position: top right; } }

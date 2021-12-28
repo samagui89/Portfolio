@@ -3,6 +3,7 @@ const ui = {
 		this.oninit.init();
 		if( $('.animate_wrap').length > 0 ) { this.circle.init() }	// Scroll Evt
 		if( $('.visual_wrap').length > 0 ) { this.mouse.init() }	// Mouse Over Evt
+		if( $('.sec03').length > 0 ) { this.secEvt.init() }			// Sec03 Evt
 	},
 	oninit : {
 		init : function(){
@@ -173,6 +174,41 @@ const ui = {
 					circle.remove();
 				}, 1800);
 			})
+		}
+	},
+	secEvt : {
+		init : function(){
+			let _this = this,
+				$wrap = $('.sec03'),
+				$target = $wrap.find('.work_list li');
+			
+			_this.evtHandler($wrap, $target);
+		},
+		evtHandler : function(w, t){
+			let _this = this;
+				tlist = [];
+			
+			t.each(function(){
+				tlist.push($(this).offset().top);
+			});
+
+			$(window).on('scroll', function(){
+				for(i=0; i<tlist.length; i++){
+					if( $(window).scrollTop() >= tlist[i] + t.eq(i).height() -200 ){
+						
+						if( !t.eq(i).hasClass('rotate') ){
+							t.eq(i).addClass('rotate');
+						}
+					} else if ( $(window).scrollTop() >= tlist[i] - 250 ){
+						t.eq(i).removeClass('rotate');
+						if( !t.eq(i).hasClass('active') ){
+							t.eq(i).addClass('active');
+						}
+					} else {
+						t.eq(i).removeClass('active rotate');
+					}
+				}
+			});
 		}
 	}
 }
