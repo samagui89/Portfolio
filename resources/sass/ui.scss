@@ -299,6 +299,9 @@
 									color:$col_wh;
 									font-size:1.8em;
 									cursor:pointer;
+									span {
+										display:none;
+									}
 								}
 							}
 						}
