@@ -39,9 +39,45 @@ svg { z-index: 1; }
 
 #header h1 a { color: #ffffff; font-size: 1.333em; font-weight: 600; }
 
-#header nav { position: fixed; top: 50%; right: 30px; -webkit-transform: translateY(-50%); transform: translateY(-50%); }
+#header .nav_wrap { display: -webkit-box; display: -ms-flexbox; display: flex; position: fixed; top: 50%; right: -100px; -webkit-transform: translateY(-50%); transform: translateY(-50%); -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-perspective: 15px; perspective: 15px; -webkit-transition: all 0.2s cubic-bezier(0.75, 0, 0.85, 1); transition: all 0.2s cubic-bezier(0.75, 0, 0.85, 1); }
 
-#header nav a { display: block; padding: 20px 0; color: #ffffff; font-size: 1.2em; }
+#header .nav_wrap .btn_nav { display: inline-block; position: relative; padding: 30px; -webkit-transform: rotateY(-5deg); transform: rotateY(-5deg); -webkit-transition: all 0.2s linear; transition: all 0.2s linear; }
+
+#header .nav_wrap .btn_nav i { display: inline-block; position: absolute; width: 10px; height: 10px; background-color: rgba(255, 255, 255, 0.7); -webkit-transition: all 0.2s linear; transition: all 0.2s linear; }
+
+#header .nav_wrap .btn_nav i.sq01 { top: 18px; left: 18px; }
+
+#header .nav_wrap .btn_nav i.sq02 { top: 18px; right: 18px; }
+
+#header .nav_wrap .btn_nav i.sq03 { bottom: 18px; left: 18px; }
+
+#header .nav_wrap .btn_nav i.sq04 { bottom: 18px; right: 18px; }
+
+#header .nav_wrap .btn_nav:hover { -webkit-transform: rotateY(0deg); transform: rotateY(0deg); }
+
+#header .nav_wrap .btn_nav:hover i { background-color: #ffffff; }
+
+#header .nav_wrap nav { width: 100px; padding: 0 10px; }
+
+#header .nav_wrap nav a { display: block; padding: 20px 0; color: #ffffff; font-size: 1.2em; -webkit-transition: all 0.2 linear; transition: all 0.2 linear; }
+
+#header .nav_wrap nav a:hover { color: #999999; }
+
+#header .nav_wrap.active { right: 0px; }
+
+#header .nav_wrap.active .btn_nav i { width: 15px; height: 5px; border-radius: 3px; background-color: #ffffff; }
+
+#header .nav_wrap.active .btn_nav i.sq01 { top: 25px; left: 23px; -webkit-transform: translateY(-50%) rotate(30deg); transform: translateY(-50%) rotate(30deg); }
+
+#header .nav_wrap.active .btn_nav i.sq02 { top: 25px; right: 23px; -webkit-transform: translateY(-50%) rotate(30deg); transform: translateY(-50%) rotate(30deg); }
+
+#header .nav_wrap.active .btn_nav i.sq03 { bottom: 25px; left: 23px; -webkit-transform: translateY(-50%) rotate(-30deg); transform: translateY(-50%) rotate(-30deg); }
+
+#header .nav_wrap.active .btn_nav i.sq04 { bottom: 25px; right: 23px; -webkit-transform: translateY(-50%) rotate(-30deg); transform: translateY(-50%) rotate(-30deg); }
+
+#header .nav_wrap.active .btn_nav:hover i { background-color: #999999; }
+
+#header .nav_wrap.active nav { padding: 0 10px 0 0; }
 
 #container { position: relative; }
 
@@ -85,7 +121,7 @@ svg { z-index: 1; }
 
 .content .sec03 .work_list li .card .card_inner .front, .content .sec03 .work_list li .card .card_inner .back { position: absolute; top: 0; left: 0; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; -webkit-transform-style: preserve-3d; transform-style: preserve-3d; border-radius: 6px; }
 
-.content .sec03 .work_list li .card .card_inner .front .inner, .content .sec03 .work_list li .card .card_inner .back .inner { height: 100%; display: -ms-grid; display: grid; padding: 1.5em; -webkit-transform: translateZ(80px) scale(0.94); transform: translateZ(80px) scale(0.94); }
+.content .sec03 .work_list li .card .card_inner .front .inner, .content .sec03 .work_list li .card .card_inner .back .inner { height: 100%; padding: 25px; -webkit-transform: translateZ(80px) scale(0.94); transform: translateZ(80px) scale(0.94); }
 
 .content .sec03 .work_list li .card .card_inner .front { background-repeat: no-repeat; background-size: 150% auto; background-position: top left; }
 
@@ -115,15 +151,31 @@ svg { z-index: 1; }
 
 .content .sec03 .work_list li .card .card_inner .front.work12 { background-image: url("/resources/images/works/img_work_12_main_01.png"); -webkit-animation: bgtrblMove 30s linear infinite; animation: bgtrblMove 30s linear infinite; }
 
-.content .sec03 .work_list li .card .card_inner .front .inner { -ms-grid-rows: 3.5fr 1fr 1fr 1fr 3.5fr; grid-template-rows: 3.5fr 1fr 1fr 1fr 3.5fr; justify-items: center; -webkit-transform: translateZ(80px) scale(0.94); transform: translateZ(80px) scale(0.94); text-align: center; z-index: 2; }
+.content .sec03 .work_list li .card .card_inner .front .inner { display: -ms-grid; display: grid; -ms-grid-rows: 3.5fr 1fr 1fr 1fr 3.5fr; grid-template-rows: 3.5fr 1fr 1fr 1fr 3.5fr; justify-items: center; -webkit-transform: translateZ(80px) scale(0.94); transform: translateZ(80px) scale(0.94); text-align: center; z-index: 2; }
 
 .content .sec03 .work_list li .card .card_inner .front .inner .owner { -ms-grid-row: 2; grid-row: 2; color: #ffffff; font-size: 2.0em; font-weight: 600; }
 
 .content .sec03 .work_list li .card .card_inner .front .inner .title { -ms-grid-row: 3; grid-row: 3; color: #ffffff; font-size: 2.8em; font-weight: 600; }
 
-.content .sec03 .work_list li .card .card_inner .front .inner label { -ms-grid-row: 4; grid-row: 4; display: inline-block; margin-top: 30px; padding: 10px 30px; border: 3px solid #ffffff; border-radius: 6px; color: #ffffff; font-size: 1.8em; cursor: pointer; }
+.content .sec03 .work_list li .card .card_inner .front .inner label { -ms-grid-row: 4; grid-row: 4; position: relative; display: inline-block; margin-top: 30px; padding: 10px 30px; border: 3px solid #ffffff; border-radius: 6px; color: #ffffff; font-size: 1.8em; cursor: pointer; }
+
+.content .sec03 .work_list li .card .card_inner .front .inner label span { position: absolute; overflow: hidden; top: 0; left: 0; width: 0; height: 100%; background-color: #ffffff; -webkit-transition: width 0.2s linear; transition: width 0.2s linear; }
+
+.content .sec03 .work_list li .card .card_inner .front .inner label span em { position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%; padding: 10px 30px; background: -webkit-gradient(linear, left top, right top, from(#438af3), to(#fff2a6)); background: linear-gradient(to right, #438af3, #fff2a6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-align: center; color: rgba(67, 138, 243, 0.7); font-size: 1.8em; font-style: normal; font-weight: 600; }
+
+.content .sec03 .work_list li .card .card_inner .front .inner label:hover span { width: 100%; }
 
 .content .sec03 .work_list li .card .card_inner .back { -webkit-transform: rotateY(180deg); transform: rotateY(180deg); background-color: #ffffff; border: 2px solid linear-gradient(40deg, rgba(67, 138, 243, 0.7), rgba(255, 242, 166, 0.7)); }
+
+.content .sec03 .work_list li .card .card_inner .back .inner { display: block; }
+
+.content .sec03 .work_list li .card .card_inner .back .inner label { -ms-grid-row: 4; grid-row: 4; position: absolute; bottom: 30px; left: 50%; display: inline-block; padding: 10px 30px; border-radius: 6px; background: -webkit-gradient(linear, left top, right top, from(#438af3), to(#fff2a6)); background: linear-gradient(to right, #438af3, #fff2a6); color: #ffffff; font-size: 1.8em; -webkit-transform: translateX(-50%); transform: translateX(-50%); cursor: pointer; }
+
+.content .sec03 .work_list li .card .card_inner .back .inner label span { position: absolute; overflow: hidden; top: 0; left: -1px; width: 0; height: 100%; background-color: #ffffff; -webkit-transition: width 0.2s linear; transition: width 0.2s linear; }
+
+.content .sec03 .work_list li .card .card_inner .back .inner label span em { position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%; padding: 10px 30px; background: -webkit-gradient(linear, left top, right top, from(#438af3), to(#fff2a6)); background: linear-gradient(to right, #438af3, #fff2a6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-align: center; color: rgba(67, 138, 243, 0.7); font-size: 1.8em; font-style: normal; font-weight: 600; }
+
+.content .sec03 .work_list li .card .card_inner .back .inner label:hover span { width: 101%; }
 
 .content .sec03 .work_list li.active { width: 1200px; }
 
@@ -200,6 +252,26 @@ svg { z-index: 1; }
 .content .animate_wrap .circle_box.active .circle04 { bottom: -140px; right: -350px; background: linear-gradient(45deg, rgba(59, 143, 78, 0.7) 0%, rgba(35, 241, 221, 0.7) 100%); }
 
 .content .animate_wrap .circle_box.active .circle04 span { text-shadow: -1em -1em 0em rgba(255, 255, 255, 0.1), -2em -2em 0em rgba(255, 255, 255, 0.15), -3em -3em 0em rgba(255, 255, 255, 0.2), -4em -4em 0em rgba(255, 255, 255, 0.25), -5em -5em 0em rgba(255, 255, 255, 0.3), -6em -6em 0em rgba(255, 255, 255, 0.35), 1em 1em 0em rgba(255, 255, 255, 0.1), 2em 2em 0em rgba(255, 255, 255, 0.15), 3em 3em 0em rgba(255, 255, 255, 0.2), 4em 4em 0em rgba(255, 255, 255, 0.25), 5em 5em 0em rgba(255, 255, 255, 0.3), 6em 6em 0em rgba(255, 255, 255, 0.35), 3.5em 0em 0em rgba(255, 255, 255, 0.1), 2.5em -1em 0em rgba(255, 255, 255, 0.1), 1.5em -2em 0em rgba(255, 255, 255, 0.15), 0.5em -3em 0em rgba(255, 255, 255, 0.2), -0.5em -4em 0em rgba(255, 255, 255, 0.25), -1.5em -5em 0em rgba(255, 255, 255, 0.3), -2.5em -6em 0em rgba(255, 255, 255, 0.35), -3.5em -7em 0em rgba(255, 255, 255, 0.4), 4.5em 1em 0em rgba(255, 255, 255, 0.1), 5.5em 2em 0em rgba(255, 255, 255, 0.15), 6.5em 3em 0em rgba(255, 255, 255, 0.2), 7.5em 4em 0em rgba(255, 255, 255, 0.25), 8.5em 5em 0em rgba(255, 255, 255, 0.3), 7em 0em 0em rgba(255, 255, 255, 0.15), 6em -1em 0em rgba(255, 255, 255, 0.15), 5em -2em 0em rgba(255, 255, 255, 0.2), 4em -3em 0em rgba(255, 255, 255, 0.25), 3em -4em 0em rgba(255, 255, 255, 0.3), 2em -5em 0em rgba(255, 255, 255, 0.35), 1em -6em 0em rgba(255, 255, 255, 0.4), 0em -7em 0em rgba(255, 255, 255, 0.45), -1em -8em 0em rgba(255, 255, 255, 0.5), 8em 1em 0em rgba(255, 255, 255, 0.1), 9em 2em 0em rgba(255, 255, 255, 0.15), 10em 3em 0em rgba(255, 255, 255, 0.2), 11em 4em 0em rgba(255, 255, 255, 0.25), 10.5em 0em 0em rgba(255, 255, 255, 0.2), 9.5em -1em 0em rgba(255, 255, 255, 0.2), 8.5em -2em 0em rgba(255, 255, 255, 0.25), 7.5em -3em 0em rgba(255, 255, 255, 0.3), 6.5em -4em 0em rgba(255, 255, 255, 0.35), 5.5em -5em 0em rgba(255, 255, 255, 0.4), 4.5em -6em 0em rgba(255, 255, 255, 0.45), 3.5em -7em 0em rgba(255, 255, 255, 0.5), 11.5em 1em 0em rgba(255, 255, 255, 0.25), 12.5em 2em 0em rgba(255, 255, 255, 0.3), 13.5em 3em 0em rgba(255, 255, 255, 0.35), -3.5em 0em 0em rgba(255, 255, 255, 0.1), -4.5em -1em 0em rgba(255, 255, 255, 0.15), -5.5em -2em 0em rgba(255, 255, 255, 0.2), -6.5em -3em 0em rgba(255, 255, 255, 0.25), -7.5em -4em 0em rgba(255, 255, 255, 0.3), -8.5em -5em 0em rgba(255, 255, 255, 0.35), -2.5em 1em 0em rgba(255, 255, 255, 0.1), -1.5em 2em 0em rgba(255, 255, 255, 0.15), -0.5em 3em 0em rgba(255, 255, 255, 0.2), 0.5em 4em 0em rgba(255, 255, 255, 0.25), 1.5em 5em 0em rgba(255, 255, 255, 0.3), 2.5em 6em 0em rgba(255, 255, 255, 0.35), 3.5em 7em 0em rgba(255, 255, 255, 0.4), -7em 0em 0em rgba(255, 255, 255, 0.15), -8em -1em 0em rgba(255, 255, 255, 0.2), -9em -2em 0em rgba(255, 255, 255, 0.25), -10em -3em 0em rgba(255, 255, 255, 0.3), -11em -4em 0em rgba(255, 255, 255, 0.35), -6em 1em 0em rgba(255, 255, 255, 0.15), -5em 2em 0em rgba(255, 255, 255, 0.2), -4em 3em 0em rgba(255, 255, 255, 0.25), -3em 4em 0em rgba(255, 255, 255, 0.3), -2em 5em 0em rgba(255, 255, 255, 0.35), -1em 6em 0em rgba(255, 255, 255, 0.4), 0em 7em 0em rgba(255, 255, 255, 0.45), 1em 8em 0em rgba(255, 255, 255, 0.5), -10.5em 0em 0em rgba(255, 255, 255, 0.2), -11.5em -1em 0em rgba(255, 255, 255, 0.25), -12.5em -2em 0em rgba(255, 255, 255, 0.3), -13.5em -3em 0em rgba(255, 255, 255, 0.35), -9.5em 1em 0em rgba(255, 255, 255, 0.2), -8.5em 2em 0em rgba(255, 255, 255, 0.25), -7.5em 3em 0em rgba(255, 255, 255, 0.3), -6.5em 4em 0em rgba(255, 255, 255, 0.35), -5.5em 5em 0em rgba(255, 255, 255, 0.4), -4.5em 6em 0em rgba(255, 255, 255, 0.45), -3.5em 7em 0em rgba(255, 255, 255, 0.5); }
+
+.content .animate_wrap .circle_box.active + .btn_main_ment .sec_ment .flip div.box01 { -webkit-animation: secMent 12s linear 0s infinite; animation: secMent 12s linear 0s infinite; }
+
+.content .animate_wrap .circle_box.active + .btn_main_ment .sec_ment .flip div.box01 span { background: linear-gradient(45deg, rgba(242, 107, 45, 0.7) 0%, rgba(143, 59, 59, 0.7) 100%); }
+
+.content .animate_wrap .circle_box.active + .btn_main_ment .sec_ment .flip div.box02 { -webkit-animation: secMent 12s linear 2s infinite; animation: secMent 12s linear 2s infinite; }
+
+.content .animate_wrap .circle_box.active + .btn_main_ment .sec_ment .flip div.box02 span { background: linear-gradient(135deg, rgba(50, 170, 219, 0.7) 0%, rgba(94, 59, 143, 0.7) 100%); }
+
+.content .animate_wrap .circle_box.active + .btn_main_ment .sec_ment .flip div.box03 { -webkit-animation: secMent 12s linear 4s infinite; animation: secMent 12s linear 4s infinite; }
+
+.content .animate_wrap .circle_box.active + .btn_main_ment .sec_ment .flip div.box03 span { background: linear-gradient(135deg, rgba(241, 192, 35, 0.7) 0%, rgba(198, 241, 35, 0.7) 100%); }
+
+.content .animate_wrap .circle_box.active + .btn_main_ment .sec_ment .flip div.box04 { -webkit-animation: secMent 12s linear 6s infinite; animation: secMent 12s linear 6s infinite; }
+
+.content .animate_wrap .circle_box.active + .btn_main_ment .sec_ment .flip div.box04 span { background: linear-gradient(45deg, rgba(59, 143, 78, 0.7) 0%, rgba(35, 241, 221, 0.7) 100%); }
+
+.content .animate_wrap .circle_box.active + .btn_main_ment .sec_ment .flip div.box05 { -webkit-animation: secMentAny 12s linear 8s infinite; animation: secMentAny 12s linear 8s infinite; }
+
+.content .animate_wrap .circle_box.active + .btn_main_ment .sec_ment .flip div.box05 span { background-color: #ffffff; color: #000000; }
 
 .content .animate_wrap .btn_main_ment { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 100%; text-align: center; color: #ffffff; -webkit-transition: -webkit-transform 0.2s; transition: -webkit-transform 0.2s; transition: transform 0.2s; transition: transform 0.2s, -webkit-transform 0.2s; }
 

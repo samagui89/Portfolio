@@ -1,6 +1,7 @@
 const ui = {
 	init : function(){
 		this.oninit.init();
+		if( $('.nav_wrap').length > 0 ) {this.ham.init() }			// Hamburger Evt
 		if( $('.animate_wrap').length > 0 ) { this.circle.init() }	// Scroll Evt
 		if( $('.visual_wrap').length > 0 ) { this.mouse.init() }	// Mouse Over Evt
 		if( $('.sec03').length > 0 ) { this.secEvt.init() }			// Sec03 Evt
@@ -14,6 +15,40 @@ const ui = {
 		},
 		sec02Evt : function(){
 			
+		}
+	},
+	ham : {
+		init : function(){
+			let $target = $('.nav_wrap'),
+				$btn = $target.find('.btn_nav'),
+				$navBtn = $target.find('nav button');
+
+			this.evtHandler($target, $btn, $navBtn);
+		},
+		evtHandler : function($t, $b, $nb){
+			let _this = this,
+				scId;
+			$b.on('click', function(){
+				if( $t.hasClass('active') ){
+					_this.close($t, $b);
+				} else {
+					_this.open($t, $b);
+				}
+			});
+
+			$nb.on('click', function(){
+				scId = $(this).attr('data-scroll');
+				_this.scroll(scId);
+			})
+		},
+		open : function($t, $b){
+			$t.addClass('active');
+		},
+		close : function($t, $b){
+			$t.removeClass('active');
+		},
+		scroll : function(scId){
+			$('html, body').animate({scrollTop: $('#'+scId).offset().top}, 400);
 		}
 	},
 	circle : {
