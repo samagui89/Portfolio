@@ -107,12 +107,11 @@ const ui = {
 					if( $cAll.closest('.circle_box').hasClass('active') ){
 						$cAll.closest('.circle_box').removeClass('active');
 					}
-				} else if ( harfMat > 1 && harfMat <= 1.5 ) {
+				} else {
 					/* 원 Animation */
 					$btn.css({'transform':'scale(1)  rotate(360deg)'});
 					$cAll.find('span').css({'transform':'scale(1)'});
 					$cAll.closest('.circle_box').addClass('active');
-				} else {
 					if( scT >= sec3T - $(window).height() - 200 ) {
 						$target.css({'position':'absolute', 'top':sec3T - $(window).height()/2 - 100 + 'px'});
 					} else {
@@ -177,17 +176,6 @@ const ui = {
 				$circle = $('.circle_box div');
 
 			_this.visualEvt($target);
-
-			// $circle.on('mouseenter', function(){
-			// 	if( $(this).closest('.circle_box.active').length > 0 ){
-			// 		$(this).addClass('pong');
-			// 	}
-			// });
-			// $circle.on('mouseleave', function(){
-			// 	if( $(this).closest('.circle_box.active').length > 0 ){
-			// 		$(this).removeClass('pong');
-			// 	}
-			// });
 		},
 		visualEvt : function($target){
 			$target.on('mousemove', function(e){

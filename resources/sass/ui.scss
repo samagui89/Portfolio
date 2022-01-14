@@ -419,11 +419,6 @@
 			display:block;
 		}
 	}
-	.sec04 {
-		position:relative;
-		background-color:$col_wh;
-		z-index:1;
-	}
 	.animate_wrap {
 		position:fixed;
 		top:50%;
@@ -1162,6 +1157,13 @@
 				transform:scale(1.2);
 			}
 		}
+	}
+	.sec04 {
+		position:relative;
+		min-height:none;
+		padding:100px 0;
+		background-color:$col_bk;
+		z-index:1;
 	}
 }	
 

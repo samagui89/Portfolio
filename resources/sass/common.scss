@@ -47,8 +47,8 @@ svg {
                 position:absolute;
                 width:10px;
                 height:10px;
-                background-color:rgba(255, 255, 255, 0.7);
-                transition:all 0.2s linear;
+                background:rgba(255, 255, 255, 0.7);
+                transition:all 0.5s linear;
                 &.sq01 {
                     top:18px;
                     left:18px;
@@ -69,14 +69,14 @@ svg {
             &:hover {
                 transform:rotateY(0deg);
                 i {
-                    background-color:#ffffff;
+                    background:#ffffff;
                 }
             }
         }
         nav {
             width:100px;
             padding:0 10px;
-            a {
+            button {
                 display:block;
                 padding:20px 0;
                 color:$col_wh;
@@ -117,8 +117,24 @@ svg {
                     }
                 }
                 &:hover {
+                    transform:rotateY(-5deg);
                     i {
-                        background-color:$col_99;
+                        &.sq01 {
+                            top:23px;
+                            transform:translateY(-50%) rotate(30deg) scale(1.5);
+                        }
+                        &.sq02 {
+                            top:23px;
+                            transform:translateY(-50%) rotate(30deg) scale(1.5);
+                        }
+                        &.sq03 {
+                            bottom:24px;
+                            transform:translateY(-50%) rotate(-30deg) scale(1.5);
+                        }
+                        &.sq04 {
+                            bottom:24px;
+                            transform:translateY(-50%) rotate(-30deg) scale(1.5);
+                        }
                     }
                 }
             }
